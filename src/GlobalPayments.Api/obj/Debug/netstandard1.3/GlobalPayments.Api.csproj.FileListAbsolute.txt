@@ -1,0 +1,9 @@
+C:\SDK\net\dotnet-sdk\src\GlobalPayments.Api\bin\Debug\netstandard1.3\GlobalPayments.Api.deps.json
+C:\SDK\net\dotnet-sdk\src\GlobalPayments.Api\bin\Debug\netstandard1.3\GlobalPayments.Api.dll
+C:\SDK\net\dotnet-sdk\src\GlobalPayments.Api\bin\Debug\netstandard1.3\GlobalPayments.Api.pdb
+C:\SDK\net\dotnet-sdk\src\GlobalPayments.Api\obj\Debug\netstandard1.3\GlobalPayments.Api.csproj.CoreCompileInputs.cache
+C:\SDK\net\dotnet-sdk\src\GlobalPayments.Api\obj\Debug\netstandard1.3\GlobalPayments.Api.AssemblyInfoInputs.cache
+C:\SDK\net\dotnet-sdk\src\GlobalPayments.Api\obj\Debug\netstandard1.3\GlobalPayments.Api.AssemblyInfo.cs
+C:\SDK\net\dotnet-sdk\src\GlobalPayments.Api\obj\Debug\netstandard1.3\GlobalPayments.Api.dll
+C:\SDK\net\dotnet-sdk\src\GlobalPayments.Api\obj\Debug\netstandard1.3\GlobalPayments.Api.pdb
+C:\SDK\net\dotnet-sdk\src\GlobalPayments.Api\obj\Debug\netstandard1.3\GlobalPayments.Api.csprojAssemblyReference.cache

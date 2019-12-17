@@ -1,0 +1,96 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj": {}
+  },
+  "projects": {
+    "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj",
+        "projectName": "GlobalPayments.Api",
+        "projectPath": "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj",
+        "packagesPath": "C:\\Users\\victor.cantera\\.nuget\\packages\\",
+        "outputPath": "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\victor.cantera\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "CoreCompat.System.Drawing": {
+              "target": "Package",
+              "version": "[1.0.0-beta006, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "System.IO.FileSystem": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Net.Primitives": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Net.Requests": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Net.Sockets": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Security.Cryptography.Algorithms": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Threading.Thread": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "System.Xml.XmlDocument": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

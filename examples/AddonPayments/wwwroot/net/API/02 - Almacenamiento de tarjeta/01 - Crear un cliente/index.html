@@ -1,0 +1,849 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Víctor Cantera">
+        <link rel="icon" href="../../../../assets/img/comercia_ico.png" type="image/x-icon"/ >
+        <title>Crear un cliente (API) - SDK .NET</title>
+
+        <!-- Bootstrap 4.3.1 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../../../../assets/css/style.css">
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-rpdc mb-3">
+            <a class="navbar-brand">
+                <img src="../../../../assets/img/log2.svg" width="30" height="30" class="img-fluid" alt="Logo Addon Payments">
+                <span class="addonNav">ADDON</span> <span>PAYMENTS</span>
+                <span class="d-none d-sm-none d-lg-inline d-xl-inline sdkNav">
+                    <span>
+                        /SDK
+                        <span class="barraNav">_</span>
+                        de
+                        <span class="barraNav">_</span>
+                        .NET
+                    </span>
+                </span>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto pl-2 pr-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Inicio
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item pl-2" href="../../../../index.html">Índice</a>
+                            <a class="dropdown-item pl-2" href="../../../errores.html">Errores de Addon Payments</a>
+                            <a class="dropdown-item pl-2" href="../../../informe.html">Convertir informe</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link dropdown-toggle pl-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pagos con tarjeta
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/01%20-%20Autorización/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/01%20-%20Autorización/DatosDelCliente.html">Datos adicionales</a>
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/02%20-%20OTB/index.html">OTB</a>
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/03%20-%20Credit/index.html">Credit</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/01%20-%20Autorizacion/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/02%20-%20OTB/index.html">OTB</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/03%20-%20Pay%20By%20Link/index.html">Pay By Link</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/04%20-%20Auth%20con%20iframe/index.html">Iframe</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/05%20-%20Lightbox/index.html">Lightbox</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link dropdown-toggle active pl-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Almacenamiento de tarjeta
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2 active" href="#">Crear un cliente</a>
+                                <a class="dropdown-item pl-2" href="../02%20-%20Almacenar%20una%20tarjeta/index.html">Almacenar una tarjeta</a>
+                                <a class="dropdown-item pl-2" href="../03%20-%20Editar%20tarjeta/index.html">Editar tarjetas</a>
+                                <a class="dropdown-item pl-2" href="../04%20-%20Eliminar%20tarjeta/index.html">Eliminar tarjetas</a>
+                                <a class="dropdown-item pl-2" href="../05%20-%20Auth/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../06%20-%20Credit/index.html">Credit</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../../HPP/02%20-%20Almacenamiento%20de%20tarjeta/01%20-%20Crear%20un%20cliente/index.html">Crear un cliente</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/02%20-%20Almacenamiento%20de%20tarjeta/02%20-%20Mostrar%20Tarjetas/index.html">Mostrar tarjetas</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gestión de transacciones
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item pl-2" href="../../03%20-%20Gestión%20de%20transacciones/01%20-%20Capturar/index.html">Settle (Capturar)</a>
+                            <a class="dropdown-item pl-2" href="../../03%20-%20Gestión%20de%20transacciones/02%20-%20Rebate/index.html">Rebate (Devolución)</a>
+                            <a class="dropdown-item pl-2" href="../../03%20-%20Gestión%20de%20transacciones/03%20-%20Void/index.html">Void (Anular transacción)</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filtro de fraude
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/01%20-%20Fraud%20Filter/index.html">Filtro de fraude</a>
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/02%20-%20Address%20Verification">Verificación de dirección</a>
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/03%20-%20Hold">Retener transacción</a>
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/04%20-%20Lanzamiento">Lanzar transacción</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"  href="../../../HPP/03%20-%20Fraud%20Management/01%20-%20Fraud%20Filter/index.html">Filtro de fraude</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            DCC
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"href="../../../HPP/04%20-%20DCC/index.html">Operación con DCC</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- /NAVBAR -->
+
+        <div class="col-lg-12"> 
+            <div id="contenidoComun" class="container-fluid">
+                <div class="row">
+
+                    <!-- Menú lateral -->
+                    <div class="col-lg-2 sticky-top d-none d-sm-none d-lg-block d-xl-block MenuLateral">
+
+                        <!-- Barra de progreso -->
+                        <div class="progress-bar" id="progreso"></div>
+                        <!-- /Barra de progreso -->
+
+                        <nav class="navbar sticky-top navbar-light" style="padding: 0px;">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#newClient">1. Crear cliente</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link ml-3 my-1" href="#codigoEjemplo">1.1 Código de ejemplo</a>
+                                </nav>
+                                <a class="nav-link" href="#descripciones">2. Descripciones</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link ml-3 my-1" id="#ConfigTerminal" href="#ConfigTerminal">2.1 Configuración del terminal</a>
+                                    <a class="nav-link ml-3 my-1" id="#ConfigCliente" href="#ConfigCliente">2.2 Datos del cliente</a>
+                                    <a class="nav-link ml-3 my-1" id="#dirClient" href="#dirClient">2.3 Dirección del cliente</a>
+                                    <a class="nav-link ml-3 my-1" id="#envioOP" href="#envioOP">2.4 Envío de la operación</a>
+                                </nav>
+                                <a class="nav-link" href="#FormEjemplo1">3. Formulario de ejemplo</a>
+                                <nav>
+                                    <a class="nav-link ml-3 my-1" href="#Formulario">3.1 Formulario</a>
+                                    <a class="nav-link ml-3 my-1" href="#respuestaForm">3.2 Respuesta de operación</a>
+                                </nav>
+                            </nav>
+                        </nav>
+                    </div>
+
+                    <div class="col-lg-10" >
+                        <div class="contenedor">
+                            <div class="pl-3 pt-3 pr-3 pb-4 mb-3 text-justify">
+                                <h3 id="newClient" class="titulo">
+                                    1. Crear cliente
+                                </h3>
+                                <hr>
+
+                                <p>
+                                   Para almacenar una tarjeta, lo primero que tenemos que hacer es configurar una referencia de cliente (Payer). También puede elegir almacenar la dirección y los datos de contacto junto a ella.
+                                </p>
+
+                                <h5 style="" class="pt-3" id="codigoEjemplo">
+                                    1.1 Código de ejemplo
+                                </h5>
+                                
+                                <hr>
+
+                                <!-- Código ejemplo-->
+                                <div class="p-4 panelCode">
+                                    <code>
+                                            <span class="etiqueta">using </span><span class="variables">Microsoft.AspNetCore.Mvc;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">GlobalPayments.Api;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">GlobalPayments.Api.Entities;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">System;</span>
+                                        <br>
+                                        <br>
+                                            <span class="etiqueta">namespace </span><span class="variables">AddonPayments.Controllers {</span>
+                                        <br>
+                                            <span class="pl-4 variables">[</span><span class="imports">ApiController</span><span class="variables">]</span>
+                                        <br>
+                                            <span class="pl-4 variables">[</span><span class="imports">Route</span><span class="variables">(</span><span class="orange">"[Controller]"</span><span class="variables">)]</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 etiqueta">public class </span><span class="imports">CustomerApiController</span><span class="variables">: </span><span class="imports">ControllerBase </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-5 variables">[</span><span class="imports">HttpPost</span><span class="variables">]</span>
+                                        <br>
+                                            <span class="pl-5 etiqueta">public </span><span class="service">IActionResult </span><span class="variables">CustomerCreate() {</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Configuramos los datos de nuestro comercio. Los datos son proporcionados por el equipo de Addon Payments,</span>
+                                       <br>
+                                           <span class="pl-6 comments">// en caso de duda debe llamar al 914 353 028 e indicar su número de comercio o Merchant ID</span>
+                                        <br>
+                                            <span class="pl-6 imports">ServicesContainer</span><span class="variables">.ConfigureService(</span><span class="new">new </span><span class="imports">GatewayConfig </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-7 variables">MerchantId = </span><span class="orange">"addonnettest"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">AccountId = </span><span class="orange">"api"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">SharedSecret = </span><span class="orange">"secret"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">ServiceUrl = </span><span class="orange">"https://remote.sandbox.addonpayments.com/remote"</span>
+                                        <br>
+                                            <span class="pl-6 variables">});</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Creamos el objeto del cliente</span>
+                                        <br>
+                                            <span class="pl-6 new">var </span><span class="variables">customer = </span><span class="new">new </span><span class="imports">Customer </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-7 variables">Key = </span><span class="imports">Guid</span><span class="variables">.NewGuid().ToString(),</span>
+                                        <br>
+                                            <span class="pl-7 variables">Title = </span><span class="orange">"Señor/Señora"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">FirstName = </span><span class="orange">"Nombre"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">LastName = </span><span class="orange">"Apellidos"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">DateOfBirth = </span><span class="orange">"Cumpleaños"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">CustomerPassword = </span><span class="orange">"Password"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">Email = </span><span class="orange">"Email"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">HomePhone = </span><span class="orange">"Teléfono"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">DeviceFingerPrint = </span><span class="orange">"Huella digital"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">Fax = </span><span class="orange">"Fax"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">WorkPhone = </span><span class="orange">"Teléfono del trabajo"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">Comments = </span><span class="orange">"Comentarios"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">Company = </span><span class="orange">"Compañía"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">Address = </span><span class="new">new </span><span class="imports">Address </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-8 variables">StreetAddress1 = </span><span class="orange">"Dirección 1"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-8 variables">StreetAddress2 = </span><span class="orange">"Dirección 2"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-8 variables">StreetAddress3 = </span><span class="orange">"Dirección 3"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-8 variables">City = </span><span class="orange">"Ciudad"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-8 variables">Province = </span><span class="orange">"Provincia"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-8 variables">PostalCode = </span><span class="orange">"Código postal"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-8 variables">Country = </span><span class="orange">"ISO del país (ES, GB, US...)"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">}</span>
+                                        <br>
+                                            <span class="pl-6 variables">};</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Lanzamos la petición al servidor de Addon Payments</span>
+                                        <br>
+                                            <span class="pl-6 new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-7 new">var </span><span class="variables">response = customer.Create();</span>
+                                        <br>
+                                            <span class="pl-7 new">var </span><span class="variables">payerRef = response.Key;</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-7 comments">// Devolvemos la respuesta asociando los parámetros recibidos por el servidor a una variable</span>
+                                        <br>
+                                            <span class="pl-7 comments">// para más información puede ver el controlador "AuthorizationApiController.cs"</span>
+                                        <br>
+                                            <span class="pl-7 new">return </span><span class="variables">Ok(response.Key);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-7 comments">// Aconsejamos guardar los datos de la operacion en su base de datos en caso de querer gestionar de forma interna sus transacciones</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 variables">}</span><span class="new"> catch </span><span class="variables">(</span><span class="imports">ApiException </span><span class="variables">exce</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="comments pl-7">// Añada aquí su tratamiento de errores</span>
+                                        <br>
+                                            <span class="pl-7 new">return </span><span class="variables">Ok(exce);</span>
+                                        <br>
+                                            <span class="pl-6 variables">}</span>
+                                        <br>
+                                            <span class="pl-5 variables">}</span>
+                                        <br>
+                                            <span class="pl-4 variables">}</span>
+                                        <br>
+                                            <span class="variables">}</span>
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contenedor">
+                            <div class="pl-3 pt-3 pr-3 pb-1 mb-3 text-justify">
+                                <h3 class="pt-1" id="descripciones">
+                                    2. Descripciones
+                                </h3>
+
+                                <hr>
+
+                                <h5 id="ConfigTerminal" class="mt-3">
+                                    2.1 Configuración del terminal
+                                </h5>
+
+                                <p>
+                                   Debemos introducir los datos de configuración que se facilitan en la llamada de cualificación del soporte técnico de Addon Payments.
+                                </p>
+
+                                <ul>
+                                   <li>
+                                       Merchant_ID = Identificador del comercio.
+                                   </li>
+                                   <li>
+                                       SubAccount = Subcuenta faciltiada en la llamada de cualificación (en caso de que se envíe la operación sin subcuenta, se usará la establecida por defecto en la creación de su terminal).
+                                   </li>
+                                   <li>
+                                       Shared Secret = Contraseña de seguridad del terminal.
+                                   </li>
+                                </ul>
+                                <small class="form-text text-muted alert alert-primary">
+                                    --&gt; En caso de que le falte algún dato de los mencionados arriba, debe contactar con su soporte técnico de Addon Payments llamando al teléfono 914 353 028 (opción 2) o enviando un email al correo electrónico <a target="_blank" href="mailto:soporteaddonpayments.com">soporteaddonpayments.com</a>.
+                                </small>
+                                <div class="p-4 mb-4 panelCode">
+                                    <code>
+                                            <span class="imports">ServicesContainer</span><span class="variables">.ConfigureService(</span><span class="new">new </span><span class="imports">GatewayConfig </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-4 variables">MerchantId = </span><span class="orange">"addonnettest"</span><span class="variables">, </span><span class="comments">// Identificador del comercio</span>
+                                        <br>
+                                            <span class="pl-4 variables">AccountId = </span><span class="orange">"api"</span><span class="variables">, </span><span class="comments">// Subcuenta asociada a su identificador</span>
+                                        <br>
+                                            <span class="pl-4 variables">SharedSecret = </span><span class="orange">"secret"</span><span class="variables">, </span><span class="comments">// Contraseña del terminal</span>
+                                        <br>
+                                            <span class="pl-4 variables">ServiceUrl = </span><span class="orange">"https://remote.sandbox.addonpayments.com/remote" </span><span class="comments">// Se debe emplear una de las siguientes URL's:</span>
+                                        <br>
+                                            <span class="pl-5 comments">// Sandbox URL para el entorno de pruebas - <b>https://remote.sandbox.addonpayments.com/remote</b>.</span>
+                                        <br>
+                                            <span class="pl-5 comments">// Live URL para el entorno de producción - <b>https://remote.addonpayments.com/remote</b>.</span>
+                                        <br>
+                                            <span class="variables">});</span>
+                                    </code>
+                                </div>
+
+                                <hr>
+
+                                <h5 id="ConfigCliente" class="mt-3">
+                                    2.2 Datos del cliente
+                                </h5>
+
+                                    <p>
+                                       Para crear el objeto "customer" necesitamos los siguientes parámetros:
+                                    </p>
+
+                                    <ul>
+                                        <li>
+                                            Llamamos a la clase <span class="arrow">new Customer</span>
+                                        </li>
+
+                                        <li>
+                                            Generamos un ID único para cada cliente llamando a la función <span class="arrow">Guid.NewGuid().ToString()</span>
+                                        </li>
+
+                                        <ul>
+                                            <li>
+                                                En caso de querer enviar un identificador personalizado, debemos enviar la siguiente información:
+                                            </li>
+
+                                            <ul>
+                                                <li>
+                                                    <span class="variableBgW">key </span><span class="arrow">= </span><span class="comentariosBgW">"Valor personalizado"</span>
+                                                </li>
+                                            </ul>
+
+                                            <li>
+                                                El identificador lo podemos utilizar posteriormente para editar el cliente que deseemos.
+                                            </li>
+                                        </ul>
+
+                                        <li>
+                                            <span class="variableBgW">Title </span><span class="arrow">= </span>Título (Señor/Señora)
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">FirstName </span><span class="arrow">= </span>Nombre
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">LastName </span><span class="arrow">= </span>Apellidos
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">DateOfBirth </span><span class="arrow">= </span>Cumpleaños
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">CustomerPassword </span><span class="arrow">= </span>En caso de que la hubiera, indicamos la contraseña del cliente
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">Email </span><span class="arrow">= </span>Correo electrónico
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">HomePhone </span><span class="arrow">= </span>Teléfono de casa
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">DeviceFingerPrint </span><span class="arrow">= </span>En caso de que la hubiera, indicamos la huella digital
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">Fax </span><span class="arrow">= </span>Fax
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">WorkPhone </span><span class="arrow">= </span>Teléfono del trabajo
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">Comments </span><span class="arrow">= </span>Comentarios
+                                        </li>
+
+                                        <li>
+                                            <span class="variableBgW">Company </span><span class="arrow">= </span>Compañía
+                                        </li>
+                                    </ul>
+
+                                    <div class="p-4 mb-4 panelCode">
+                                        <code>
+                                                <span class="new">var </span><span class="variables">customer = </span><span class="new">new </span><span class="imports">Customer </span><span class="variables">{</span>
+                                            <br>
+                                                <span class="pl-4 variables">Key = </span><span class="imports">Guid</span><span class="variables">.NewGuid().ToString(),</span>
+                                            <br>
+                                                <span class="pl-4 variables">Title = </span><span class="orange">"Señor/Señora"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">FirstName = </span><span class="orange">"Nombre"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">LastName = </span><span class="orange">"Apellidos"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">DateOfBirth = </span><span class="orange">"Cumpleaños"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">CustomerPassword = </span><span class="orange">"Password"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">Email = </span><span class="orange">"Email"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">HomePhone = </span><span class="orange">"Teléfono"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">DeviceFingerPrint = </span><span class="orange">"Huella digital"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">Fax = </span><span class="orange">"Fax"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">WorkPhone = </span><span class="orange">"Teléfono del trabajo"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">Comments = </span><span class="orange">"Comentarios"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 variables">Company = </span><span class="orange">"Compañía"</span><span class="variables">,</span>
+                                            <br>
+                                                <span class="pl-4 comments">// Aquí va la sección '2.3 Dirección del cliente'</span>
+                                            <br>
+                                                <span class="variables">};</span>
+                                        </code>
+                                    </div>
+
+                                <hr>
+
+                                <h5 id="dirClient" class="mt-3">
+                                    2.3 Dirección del cliente
+                                </h5>
+
+                                <p>
+                                   Para crear el objeto "Address" necesitamos los siguientes parámetros:
+                                </p>
+
+                                <ul>
+                                    <li>
+                                        Llamamos a la clase <span class="arrow">new Address</span>
+                                    </li>
+
+                                    <li>
+                                        <span class="variableBgW">StreetAddress1 </span><span class="arrow">= </span>Dirección de envío 1
+                                    </li>
+
+                                    <li>
+                                        <span class="variableBgW">StreetAddress2 </span><span class="arrow">= </span>Dirección de envío 2
+                                    </li>
+
+                                    <li>
+                                        <span class="variableBgW">StreetAddress3 </span><span class="arrow">= </span>Dirección de envío 3
+                                    </li>
+
+                                    <li>
+                                        <span class="variableBgW">City </span><span class="arrow">= </span>Ciudad
+                                    </li>
+
+                                    <li>
+                                        <span class="variableBgW">Province </span><span class="arrow">= </span>Provincia
+                                    </li>
+
+                                    <li>
+                                        <span class="variableBgW">PostalCode </span><span class="arrow">= </span>Código postal
+                                    </li>
+
+                                    <li>
+                                        <span class="variableBgW">Country </span><span class="arrow">= </span>ISO del país del cliente
+                                    </li>
+                                </ul>
+
+                                <div class="p-4 mb-4 panelCode">
+                                    <code>
+                                        <span class="variables">Address = </span><span class="new">new </span><span class="imports">Address </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-4 variables">StreetAddress1 = </span><span class="orange">"Dirección 1"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">StreetAddress2 = </span><span class="orange">"Dirección 2"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">StreetAddress3 = </span><span class="orange">"Dirección 3"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">City = </span><span class="orange">"Ciudad"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">Province = </span><span class="orange">"Provincia"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">PostalCode = </span><span class="orange">"Código postal"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">Country = </span><span class="orange">"ISO del país (ES, GB, US...)"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="variables">}</span>
+                                    </code>
+                                </div>
+
+                                <hr>
+
+                                <h5 id="envioOP" class="mt-3">
+                                    2.4 Envío de la operación
+                                </h5>
+
+                                <p>
+                                    Para enviar la operación debemos emplear el modelo de excepciones "try - catch". 
+                                    <small class="form-text text-muted alert alert-primary">
+                                        --&gt;Para obtener más información sobre la excepción de "try - catch" puede ver la <a target="_blank" href="https://docs.microsoft.com/es-es/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions">documentación oficial de .NET</a>
+                                    </small>
+                                </p>
+
+                                <ul>
+                                    <li>
+                                        Llamamos al objeto "customer" y ejecutamos la función de creación de usuario = 
+                                        <span class="variableBgW">customer</span><span class="arrow">.Create();</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        En caso de que queramos actualizar el usuario, debemos ejecutar la función = <span class="variableBgW">customer</span><span class="arrow">.SaveChanges();</span>
+                                    </li>
+                                </ul>
+                                <div class="p-4 mb-4 panelCode">
+                                    <code>
+                                        <span class="new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-4 new">var </span><span class="variables">response = customer.Create();</span>
+                                        <br>
+                                            <span class="pl-4 new">var </span><span class="variables">payerRef = response.Key;</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 comments">// Devolvemos la respuesta asociando los parámetros recibidos por el servidor a una variable</span>
+                                        <br>
+                                            <span class="pl-4 comments">// para más información puede ver el controlador "AuthorizationApiController.cs"</span>
+                                        <br>
+                                            <span class="pl-4 new">return </span><span class="variables">Ok(response.Key);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 comments">// Aconsejamos guardar los datos de la operacion en su base de datos en caso de querer gestionar de forma interna sus transacciones</span>
+                                        <br>
+                                        <br>
+                                            <span class="variables">}</span><span class="new"> catch </span><span class="variables">(</span><span class="imports">ApiException </span><span class="variables">exce</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="comments pl-4">// Añada aquí su tratamiento de errores</span>
+                                        <br>
+                                            <span class="pl-4 new">return </span><span class="variables">Ok(exce);</span>
+                                        <br>
+                                            <span class="variables">}</span>
+                                    </code>
+                                </div>
+
+                                <p class="pb-4">
+                                    Para la respuesta realizamos un <span class="arrow">return Ok()</span> de "<span class="arrow">exce</span>".
+                                    <br>
+                                    <br>
+                                    Con esta función obtenemos el motivo de la denegación del servidor. Para ver todos los errores de denegación actualizados, puede comprobar nuestra <a target="_blank" href="https://desarrolladores.addonpayments.com/#!/technical-resources/messages">documentación de Addon Payments.</a>
+                                </p>
+
+                            </div>
+                        </div>
+                        
+                        <div class="contenedor">
+                            <div class="pl-3 pt-3 pr-3 pb-4 mb-3 text-justify">
+                                <h3 class="pt-1" id="FormEjemplo1">
+                                    3. Formulario de ejemplo
+                                </h3>
+
+                                <hr>
+
+                                <p>
+                                    Para poder procesar la transacción con el formulario de ejemplo en su identificador, debe modificar el archivo "CustomerApiController.cs" que se encuentra en la ruta "Controllers\CustomerApiController.cs".
+                                </p>
+
+                                <p>
+                                    Debe introducir sus datos de configuración tal y como se muestra en el punto 2.1 "Configuración del terminal".
+                                </p>
+
+                                <hr>
+
+                                <h5 id="Formulario" class="mt-3">
+                                    3.1 Formulario
+                                </h5>
+
+                                <p>
+                                    El siguiente formulario le permite crear un cliente contra el entorno de pruebas de Addon Payments. Puede acceder al panel de administración ingresando en la siguiente URL e introduciendo sus datos de inicio de sesión:
+                                    <ul>
+                                         <li><a target="_blank" href="https://admin.sandbox.addonpayments.com">https://admin.sandbox.addonpayments.com.</a></li>
+                                    </ul>
+                                </p>
+
+                                <form id="formulario_envio" method="POST" autocomplete="off" class="offset-lg-3 pt-3 col-lg-6" action="/CustomerApi">
+                                    <div class="row justify-content-around">
+                                    <!-- Datos del pagador-->
+                                        <div class="col-lg-12 mt-2 formulario">
+                                            <h4 class="pt-2">Datos del pagador</h4>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-2">
+                                                    <label for="titulo">Título</label>
+                                                    <select class="custom-select" name="titulo" id="titulo" required>
+                                                        <option value="Señor">Señor</option>
+                                                        <option value="Señora">Señora</option>
+                                                        <option value="Mr.">Mr.</option>
+                                                        <option value="Ms.">Ms.</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-5">
+                                                    <label for="nombre">Nombre</label>
+                                                    <input type="text" class="form-control" id="firstName" name="nombre" placeholder="Nombre" required/>
+                                                </div>
+                                                <div class="form-group col-md-5">
+                                                    <label for="apellido">Apellidos</label>
+                                                    <input type="text" class="form-control" id="lastname" name="apellido" placeholder="Apellidos" required/>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="company">Compañía</label>
+                                                    <input type="text" class="form-control" id="company" name="company" placeholder="Addon Payments" required/>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="fax">Fax</label>
+                                                    <input type="tel" class="form-control" id="fax" name="fax" placeholder="123456"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" class="form-control" id="customerEmail" name="email" value="email@ejemplo.com" />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="tlf">Teléfono personal</label>
+                                                    <input type="tel" class="form-control" id="tlf" name="tlf" value="123456789" />
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="hometlf">Teléfono de casa</label>
+                                                    <input type="tel" class="form-control" id="hometlf" name="hometlf" value="987654321" />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="workPhone">Teléfono del trabajo</label>
+                                                    <input type="tel" class="form-control" id="workPhone" name="workPhone" value="976431852" />
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-5">
+                                                    <label for="Birth">Cumpleaños</label>
+                                                    <input type="date" class="form-control" id="birthday" name="birth" />
+                                                </div>
+                                                <div class="form-group col-md-7">
+                                                    <label for="pass">Contraseña</label>
+                                                    <input type="password" class="form-control" id="customerPassword" name="clave" value="Contraseña123" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Comentarios">Comentarios</label>
+                                                <textarea class="form-control" id="comments" name="comments" placeholder="Escriba el texto aquí" /></textarea>
+                                            </div>
+                                    <!-- /Datos del pagador-->
+
+                                    <!-- Datos de envío del cliente -->
+                                        <h4 class="pt-2">Datos de envío</h4>
+                                        
+                                            <div class="form-group">
+                                                <label for="direccion1">Dirección 1 de envío</label>
+                                                <input type="text" class="form-control" id="direccion1S" name="direccion1" value="Envío 123" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="direccion2">Dirección 2 de envío</label>
+                                                <input type="text" class="form-control" id="direccion2S" name="direccion2" value="Envío 456" />
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-8">
+                                                    <label for="direccion3">Dirección 3 de envío</label>
+                                                    <input type="text" class="form-control" id="direccion3S" name="direccion3" value="Envío 789" />
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="ciudad">Ciudad</label>
+                                                    <input type="text" class="form-control" id="ciudadS" name="ciudad" value="Elche" />
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label for="provincia">Provincia</label>
+                                                    <input type="text" class="form-control" id="provinciaS" name="provincia" value="Alicante" />
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="pais">País</label>
+                                                    <select class="form-control" name="pais" id="paisS">
+                                                        <option value="ES" name="pais">España</option>
+                                                        <option value="GB" name="pais">Reino Unido</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="CodigoPostal">Código Postal</label>
+                                                    <input type="text" class="form-control" id="cpS" name="codigoPostal" value="03201" />
+                                                </div>
+                                            </div>
+                                    <!-- /Datos de envío del cliente -->
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <button type="submit" class="btn btn-block btn-primary">Crear Cliente</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </form>
+
+                                <hr>
+
+                                <h5 id="respuestaForm">
+                                    3.2 Respuesta de la operación
+                                </h5>
+
+                                <small class="form-text text-muted alert alert-primary">
+                                    --&gt; La respuesta se obtiene mediante la excepción "try - catch". Para ver más información puede ver la <a target="_blank" href="https://docs.microsoft.com/es-es/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions">documentación oficial de .NET</a>
+                                </small>
+
+                                <div id="server-results" class="pb-3 mb-2">
+                                    <p>
+                                        Su respuesta aparecerá aquí.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin punto 3 -->
+
+                    </div>
+                    <!-- /Contenido común -->
+
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="../../../../assets/js/barraprogreso.js"></script>
+
+        <script>
+            // Petición AJAX para enviar el formulario sin recargar la web
+            $("#formulario_envio").submit(function(event){
+                event.preventDefault();
+                var url = $(this).attr("action"); // Valor del campo "action" del formulario
+                var method = $(this).attr("method"); // Valor del campo "method" del formulario
+                var datos = {
+                    Cliente: {
+                        titulo: $("#titulo").val(),
+                        nombre: $("#firstName").val(),
+                        apellidos: $("#lastname").val(),
+                        cumple: $("#birthday").val(),
+                        pass: $("#customerPassword").val(),
+                        email: $("#customerEmail").val(),
+                        homephone: $("#tlf").val(),
+                        fax: $("#fax").val(),
+                        workphone: $("#workPhone").val(),
+                        comments: $("#comments").val(),
+                        company: $("#company").val()
+                    },
+                    Shipping: {
+                        street1: $("#direccion1S").val(),
+                        street2: $("#direccion2S").val(),
+                        street3: $("#direccion3S").val(),
+                        enviocity: $("#ciudadS").val(),
+                        envioprovince: $("#provinciaS").val(),
+                        enviostate: $("#paisS").val(),
+                        enviocode: $("#cpS").val()
+                    }
+                }
+
+                $.ajax({
+                    url: url,
+                    type: method,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(datos)
+                }).done(function (respuesta) { //
+                    console.log(respuesta);
+                    if (respuesta.result == respuesta.result) {
+                        var json = "Cliente generado correctamente"
+                            + "<br>" +
+                            "Identificador del cliente === " + respuesta.result;
+
+                        $("#server-results").html(json);
+                    } else {
+                        var json = respuesta.resultado;
+                        $("#server-results").html(json);
+                    }
+                });
+            });
+        </script>
+
+    </body>
+</html>

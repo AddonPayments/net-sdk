@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Este SDK ha sido adaptado por Comercia Global Payments para facilitar la integración de su terminal Addon Payments en su servidor .NET.</Description>
+    <PackageProjectUrl>https://desarrolladores.addonpayments.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AddonPayments/net-sdk</RepositoryUrl>
+    <Copyright>Addon Payments</Copyright>
+    <Company>Comercia GlobalPayments</Company>
+    <PackageId>AddonPayments</PackageId>
+    <Authors>AddonPayments</Authors>
+    <Product>AddonPayments</Product>
+    <title>SDK de Addon Payments</title>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageIcon>https://raw.githubusercontent.com/AddonPayments/net-sdk/master/test/assets/img/comercia_ico.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
+  </ItemGroup>
+
+</Project>

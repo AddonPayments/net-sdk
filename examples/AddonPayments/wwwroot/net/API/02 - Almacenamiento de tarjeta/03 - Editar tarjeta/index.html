@@ -1,0 +1,700 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Víctor Cantera">
+        <link rel="icon" href="../../../../assets/img/comercia_ico.png" type="image/x-icon"/ >
+        <title>Editar tarjeta (API) - SDK .NET</title>
+
+        <!-- Bootstrap 4.3.1 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../../../../assets/css/style.css">
+
+        <!-- Script para comprobar los datos de la tarjeta mediante API -->
+        <script src="../../../../assets/js/rxp-js.js"></script> <!-- Available at https://github.com/realexpayments -->
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-rpdc mb-3">
+            <a class="navbar-brand">
+                <img src="../../../../assets/img/log2.svg" width="30" height="30" class="img-fluid" alt="Logo Addon Payments">
+                <span class="addonNav">ADDON</span> <span>PAYMENTS</span>
+                <span class="d-none d-sm-none d-lg-inline d-xl-inline sdkNav">
+                    <span>
+                        /SDK
+                        <span class="barraNav">_</span>
+                        de
+                        <span class="barraNav">_</span>
+                        .NET
+                    </span>
+                </span>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto pl-2 pr-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Inicio
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item pl-2" href="../../../../index.html">Índice</a>
+                            <a class="dropdown-item pl-2" href="../../../errores.html">Errores de Addon Payments</a>
+                            <a class="dropdown-item pl-2" href="../../../informe.html">Convertir informe</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link dropdown-toggle pl-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pagos con tarjeta
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/01%20-%20Autorización/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/01%20-%20Autorización/DatosDelCliente.html">Datos adicionales</a>
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/02%20-%20OTB/index.html">OTB</a>
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/03%20-%20Credit/index.html">Credit</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/01%20-%20Autorizacion/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/02%20-%20OTB/index.html">OTB</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/03%20-%20Pay%20By%20Link/index.html">Pay By Link</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/04%20-%20Auth%20con%20iframe/index.html">Iframe</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/05%20-%20Lightbox/index.html">Lightbox</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link dropdown-toggle active pl-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Almacenamiento de tarjeta
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../01%20-%20Crear%20un%20cliente/index.html">Crear un cliente</a>
+                                <a class="dropdown-item pl-2" href="../02%20-%20Almacenar%20una%20tarjeta/index.html">Almacenar una tarjeta</a>
+                                <a class="dropdown-item pl-2 active" href="#">Editar tarjetas</a>
+                                <a class="dropdown-item pl-2" href="../04%20-%20Eliminar%20tarjeta/index.html">Eliminar tarjetas</a>
+                                <a class="dropdown-item pl-2" href="../05%20-%20Auth/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../06%20-%20Credit/index.html">Credit</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../../HPP/02%20-%20Almacenamiento%20de%20tarjeta/01%20-%20Crear%20un%20cliente/index.html">Crear un cliente</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/02%20-%20Almacenamiento%20de%20tarjeta/02%20-%20Mostrar%20Tarjetas/index.html">Mostrar tarjetas</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gestión de transacciones
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item pl-2" href="../../03%20-%20Gestión%20de%20transacciones/01%20-%20Capturar/index.html">Settle (Capturar)</a>
+                            <a class="dropdown-item pl-2" href="../../03%20-%20Gestión%20de%20transacciones/02%20-%20Rebate/index.html">Rebate (Devolución)</a>
+                            <a class="dropdown-item pl-2" href="../../03%20-%20Gestión%20de%20transacciones/03%20-%20Void/index.html">Void (Anular transacción)</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filtro de fraude
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/01%20-%20Fraud%20Filter/index.html">Filtro de fraude</a>
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/02%20-%20Address%20Verification">Verificación de dirección</a>
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/03%20-%20Hold">Retener transacción</a>
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/04%20-%20Lanzamiento">Lanzar transacción</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"  href="../../../HPP/03%20-%20Fraud%20Management/01%20-%20Fraud%20Filter/index.html">Filtro de fraude</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            DCC
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"href="../../../HPP/04%20-%20DCC/index.html">Operación con DCC</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- /NAVBAR -->
+
+        <div class="col-lg-12"> 
+            <div id="contenidoComun" class="container-fluid">
+                <div class="row">
+
+                    <!-- Menú lateral -->
+                    <div class="col-lg-2 sticky-top d-none d-sm-none d-lg-block d-xl-block MenuLateral">
+
+                        <!-- Barra de progreso -->
+                        <div class="progress-bar" id="progreso"></div>
+                        <!-- /Barra de progreso -->
+
+                        <nav class="navbar sticky-top navbar-light" style="padding: 0px;">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#editCard">1. Editar tarjetas</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link ml-3 my-1" href="#codigoEjemplo">1.1 Código de ejemplo</a>
+                                </nav>
+                                <a class="nav-link" href="#descripciones">2. Descripciones</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link ml-3 my-1" id="#ConfigTerminal" href="#ConfigTerminal">2.1 Configuración del terminal</a>
+                                    <a class="nav-link ml-3 my-1" id="#refExist" href="#refExist">2.2 Referencias</a>
+                                    <a class="nav-link ml-3 my-1" id="#ConfigTarjeta" href="#ConfigTarjeta">2.3 Datos de la tarjeta</a>
+                                    <a class="nav-link ml-3 my-1" id="#asoc" href="#asoc">2.4 Nuevo método de pago</a>
+                                    <a class="nav-link ml-3 my-1" id="#envioOP" href="#envioOP">2.5 Envío de la modificación</a>
+                                </nav>
+                                <a class="nav-link" href="#FormEjemplo1">3. Formulario de ejemplo</a>
+                                <nav>
+                                    <a class="nav-link ml-3 my-1" href="#Formulario">3.1 Formulario</a>
+                                    <a class="nav-link ml-3 my-1" href="#respuestaForm">3.2 Respuesta de operación</a>
+                                </nav>
+                            </nav>
+                        </nav>
+                    </div>
+
+                    <div class="col-lg-10" >
+                        <!-- Punto 1 -->
+                        <div class="contenedor">
+                            <div class="pl-3 pt-3 pr-3 pb-4 mb-3 text-justify">
+                                <h3 id="editCard" class="titulo">
+                                    1. Editar tarjetas
+                                </h3>
+                                <hr>
+
+                                <p>
+                                    Si los detalles de la tarjeta de su cliente cambian, por ejemplo, si se actualiza la fecha de vencimiento o si obtienen un nuevo número de tarjeta, puede actualizar la referencia en Almacenamiento de tarjeta utilizando esta solicitud. Puede actualizar todos los detalles de la tarjeta a la vez o solo los bits de datos individuales, por ejemplo, solo la fecha de vencimiento. En el siguiente ejemplo, estamos reemplazando completamente la tarjeta por una nueva.
+                                </p>
+
+                                <p class="alert alert-danger" role="alert">
+                                    Recomendamos encarecidamente sanear los datos del titular de la tarjeta antes de enviarla en la solicitud. Por ejemplo, debe comprobar que el número de tarjeta es válido y que la fecha de caducidad es correcta. <a target="_blank" href="https://github.com/globalpayments/rxp-js">Nuestra biblioteca JS</a> contiene un conjunto de funciones útiles que le ayudan a procesar las solicitudes correctamente.
+                                    <small class="form-text text-muted">
+                                        --> En los ejemplos de esta documentación usamos el fichero de comprobación JS rxp-js.js de RealexPayments. Podrá ver el fichero en la carpeta de "assets/js".
+                                    </small>
+                                </p>
+
+                                <h5 style="" class="pt-3" id="codigoEjemplo">
+                                    1.1 Código de ejemplo
+                                </h5>
+                                
+                                <hr>
+
+                                <!-- Código ejemplo-->
+                                <div class="p-4 panelCode">
+                                    <code>
+                                            <span class="etiqueta">using </span><span class="variables">Microsoft.AspNetCore.Mvc;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">GlobalPayments.Api;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">GlobalPayments.Api.Entities;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">GlobalPayments.Api.PaymentMethods;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">System;</span>
+                                        <br>
+                                        <br>
+                                            <span class="etiqueta">namespace </span><span class="variables">AddonPayments.Controllers {</span>
+                                        <br>
+                                            <span class="pl-4 variables">[</span><span class="imports">ApiController</span><span class="variables">]</span>
+                                        <br>
+                                            <span class="pl-4 variables">[</span><span class="imports">Route</span><span class="variables">(</span><span class="orange">"[Controller]"</span><span class="variables">)]</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 etiqueta">public class </span><span class="imports">EditcardApiController</span><span class="variables">: </span><span class="imports">ControllerBase </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-5 variables">[</span><span class="imports">HttpPost</span><span class="variables">]</span>
+                                        <br>
+                                            <span class="pl-5 etiqueta">public </span><span class="service">IActionResult </span><span class="variables">EditcardApi() {</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Configuramos los datos de nuestro comercio. Los datos son proporcionados por el equipo de Addon Payments,</span>
+                                       <br>
+                                           <span class="pl-6 comments">// en caso de duda debe llamar al 914 353 028 e indicar su número de comercio o Merchant ID</span>
+                                        <br>
+                                            <span class="pl-6 imports">ServicesContainer</span><span class="variables">.ConfigureService(</span><span class="new">new </span><span class="imports">GatewayConfig </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-7 variables">MerchantId = </span><span class="orange">"addonnettest"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">AccountId = </span><span class="orange">"api"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">SharedSecret = </span><span class="orange">"secret"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">ServiceUrl = </span><span class="orange">"https://remote.sandbox.addonpayments.com/remote"</span>
+                                        <br>
+                                            <span class="pl-6 variables">});</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Creamos el objeto cliente</span>
+                                        <br>
+                                            <span class="pl-6 new">var </span><span class="variables">customerId = </span><span class="orange">"8367fd4b-556f-4992-8b33-5f004c3a82d8"</span><span class="variables">;</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Creamos el objeto de la tarjeta</span>
+                                        <br>
+                                            <span class="pl-6 new">var </span><span class="variables">paymentId = </span><span class="orange">"916f619f-0de2-4c43-ab83-73b6abf5f4e5"</span><span class="variables">;</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Asociamos la tarjeta al cliente</span>
+                                        <br>
+                                            <span class="pl-6 new">var </span><span class="variables">paymentMethod = </span><span class="new">new </span><span class="imports">RecurringPaymentMethod</span><span class="variables">(customerId, paymentId);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Creamos el objeto de la tarjeta</span>
+                                        <br>
+                                            <span class="pl-6 new">var </span><span class="variables">newCardDetails = </span><span class="new">new </span><span class="imports">CreditCardData </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-7 variables">Number = </span><span class="orange">"4263970000005262"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">ExpMonth = </span><span class="imports">12</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">ExpYear = </span><span class="imports">2025</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">CardHolderName = </span><span class="orange">"Nombre del titular"</span>
+                                        <br>
+                                            <span class="pl-6 variables">};</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Añadimos los nuevos datos de tarjeta al objeto paymentMethod</span>
+                                        <br>
+                                            <span class="pl-6 variables">paymentMethod.PaymentMethod = newCardDetails;</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Lanzamos la petición al servidor de Addon Payments</span>
+                                        <br>
+                                            <span class="pl-6 new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-7 variables">paymentMethod.SaveChanges();</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-7 comments">// Devolvemos la respuesta asociando los parámetros recibidos por el servidor</span>
+                                        <br>
+                                            <span class="pl-7 new">return </span><span class="variables">Ok(variable);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-7 comments">// Aconsejamos guardar los datos de la operacion en su base de datos en caso de querer gestionar de forma interna sus transacciones</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 variables">}</span><span class="new"> catch </span><span class="variables">(</span><span class="imports">ApiException </span><span class="variables">exce</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="comments pl-7">// Añada aquí su tratamiento de errores</span>
+                                        <br>
+                                            <span class="pl-7 new">return </span><span class="variables">Ok(exce);</span>
+                                        <br>
+                                            <span class="pl-6 variables">}</span>
+                                        <br>
+                                            <span class="pl-5 variables">}</span>
+                                        <br>
+                                            <span class="pl-4 variables">}</span>
+                                        <br>
+                                            <span class="variables">}</span>
+                                    </code>
+                                </div>
+                                <!-- Fin código ejemplo-->
+                            </div>
+                        </div>
+                        <!-- Fin punto 1 -->
+
+                        <!-- Punto 2 -->
+                        <div class="contenedor">
+                            <div class="pl-3 pt-3 pr-3 pb-1 mb-3 text-justify">
+                                <h3 class="pt-1" id="descripciones">
+                                    2. Descripciones
+                                </h3>
+
+                                <hr>
+
+                                <h5 id="ConfigTerminal" class="mt-3">
+                                    2.1 Configuración del terminal
+                                </h5>
+
+                                <p>
+                                   Debemos introducir los datos de configuración que se facilitan en la llamada de cualificación del soporte técnico de Addon Payments.
+                                </p>
+                                <ul>
+                                   <li>
+                                       Merchant_ID = Identificador del comercio.
+                                   </li>
+                                   <li>
+                                       SubAccount = Subcuenta faciltiada en la llamada de cualificación (si se deja en blanco se envía la subcuenta por defecto que le hayan creado).
+                                   </li>
+                                   <li>
+                                       Shared Secret = Contraseña de seguridad del terminal.
+                                   </li>
+                                </ul>
+                                <small class="form-text text-muted alert alert-primary">
+                                    --&gt; En caso de que le falte algún dato de los mencionados arriba, debe contactar con su soporte técnico de Addon Payments llamando al teléfono 914 353 028 (opción 2) o enviando un email al correo electrónico <a target="_blank" href="mailto:soporteaddonpayments.com">soporteaddonpayments.com</a>.
+                                </small>
+                                <div class="p-4 mb-4 panelCode">
+                                    <code>
+                                            <span class="imports">ServicesContainer</span><span class="variables">.ConfigureService(</span><span class="new">new </span><span class="imports">GatewayConfig </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-4 variables">MerchantId = </span><span class="orange">"addonnettest"</span><span class="variables">, </span><span class="comments">// Identificador del comercio</span>
+                                        <br>
+                                            <span class="pl-4 variables">AccountId = </span><span class="orange">"api"</span><span class="variables">, </span><span class="comments">// Subcuenta asociada a su identificador</span>
+                                        <br>
+                                            <span class="pl-4 variables">SharedSecret = </span><span class="orange">"secret"</span><span class="variables">, </span><span class="comments">// Contraseña del terminal</span>
+                                        <br>
+                                            <span class="pl-4 variables">ServiceUrl = </span><span class="orange">"https://remote.sandbox.addonpayments.com/remote" </span><span class="comments">// Se debe emplear una de las siguientes URL's:</span>
+                                        <br>
+                                            <span class="pl-5 comments">// Sandbox URL para el entorno de pruebas - <b>https://remote.sandbox.addonpayments.com/remote</b>.</span>
+                                        <br>
+                                            <span class="pl-5 comments">// Live URL para el entorno de producción - <b>https://remote.addonpayments.com/remote</b>.</span>
+                                        <br>
+                                            <span class="variables">});</span>
+                                    </code>
+                                </div>
+
+                                <hr>
+
+                                <h5 id="refExist" class="mt-3">
+                                    2.2 Referencias
+                                </h5>
+
+                                    <p>
+                                       Necesitamos asociar la referencia del cliente y la referencia de la tarjeta que deseamos modificar.
+                                    </p>
+
+                                    <ul>
+                                        <li>
+                                            Asociamos la referencia del cliente a la variable "<span class="variableBgW">customerId</span>":
+                                            <ul>
+                                                <li>
+                                                   <span class="variableBgW">customerId</span> <span class="arrow">=</span> <span class="comentariosBgW">"8367fd4b-556f-4992-8b33-5f004c3a82d8"</span><span class="require">;</span>
+                                                </li>
+                                                <br>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            Asociamos la referencia del método de pago a la variable "<span class="variableBgW">paymentId</span>":
+                                            <ul>
+                                                <li>
+                                                    <span class="variableBgW">paymentId</span> <span class="arrow">=</span> <span class="comentariosBgW">"916f619f-0de2-4c43-ab83-73b6abf5f4e5"</span><span class="require">;</span>
+                                                </li>
+                                                <br>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            Creamos el objeto "RecurringPaymentMethod" con las referencias que hemos asociado anteriormente:
+                                        </li>
+
+                                        <ul>
+                                            <li>
+                                                <span class="variableBgW">paymentMethod</span> <span class="require">=</span> <span class="arrow">new RecurringPaymentMethod(</span><span class="variableBgW">customerId</span><span class="arrow">,</span> <span class="variableBgW">paymentId</span><span class="arrow">);</span>
+                                            </li>
+                                        </ul>
+                                    </ul>
+
+                                    <div class="p-4 mb-4 panelCode">
+                                        <code>
+                                                <span class="comments">// Creamos el objeto cliente</span>
+                                            <br>
+                                                <span class="new">var </span><span class="variables">customerId = </span><span class="orange">"8367fd4b-556f-4992-8b33-5f004c3a82d8"</span><span class="variables">;</span>
+                                            <br>
+                                            <br>
+                                                <span class="comments">// Creamos el objeto de la tarjeta</span>
+                                            <br>
+                                                <span class="new">var </span><span class="variables">paymentId = </span><span class="orange">"916f619f-0de2-4c43-ab83-73b6abf5f4e5"</span><span class="variables">;</span>
+                                            <br>
+                                            <br>
+                                                <span class="comments">// Asociamos la tarjeta al cliente</span>
+                                            <br>
+                                                <span class="new">var </span><span class="variables">paymentMethod = </span><span class="new">new </span><span class="imports">RecurringPaymentMethod</span><span class="variables">(customerId, paymentId);</span>
+                                        </code>
+                                    </div>
+
+                                <hr>
+
+                                <h5 id="ConfigTarjeta" class="mt-3">
+                                    2.3 Datos de la tarjeta
+                                </h5>
+                                    <p>
+                                       Para crear el objeto "card" necesitamos los siguientes parámetros:
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            Llamamos a la clase <span class="arrow">new CreditCardData</span><span class="require">;</span>
+                                        </li>
+
+                                        <li>
+                                            Indicamos cuál es el número de la tarjeta a la cual vamos a realizarle el cargo:
+                                            <span class="comentariosBgW">"4263970000005262"</span><span class="arrow">;</span>
+                                        </li>
+
+                                        <li>
+                                            Indicamos el mes de expiración:
+                                            <span class="comentariosBgW">12</span><span class="arrow">;</span>
+                                        </li>
+
+                                        <li>
+                                            Indicamos la fecha de expiración:
+                                            <span class="comentariosBgW">2025</span><span class="arrow">;</span>
+                                        </li>
+
+                                        <li>
+                                            Nombre del titular de la tarjeta:
+                                          <span class="comentariosBgW">"Nombre del titular"</span><span class="arrow">;</span>
+                                        </li>
+                                    </ul>
+                                    <div class="p-4 mb-4 panelCode">
+                                        <code>
+                                                <span class="new">var </span><span class="variables">card = </span><span class="new">new </span><span class="imports">CreditCardData </span><span class="variables">{ </span><span class="comments">// Llamamos a la clase CreditCardData()</span>
+                                            <br>
+                                                <span class="pl-4 variables">Number = </span><span class="orange">"4263970000005262"</span><span class="variables">, </span><span class="comments">// Tarjeta del cliente (en este caso una tarjeta de pruebas)</span>
+                                            <br>
+                                                <span class="pl-4 variables">ExpMonth = </span><span class="imports">12</span><span class="variables">, </span><span class="comments">// Mes de expiración de la tarjeta</span>
+                                            <br>
+                                                <span class="pl-4 variables">ExpYear = </span><span class="imports">2025</span><span class="variables">, </span><span class="comments">// Año de expiración de la tarjeta</span>
+                                            <br>
+                                                <span class="pl-4 variables">CardHolderName = </span><span class="orange">"Nombre del titular" </span><span class="comments">// Nombre del cliente</span>
+                                            <br>
+                                                <span class="variables">};</span>
+                                        </code>
+                                    </div>
+
+                                <hr>
+
+                                <h5 id="asoc" class="mt-3">
+                                    2.4 Nuevo método de pago
+                                </h5>
+                                    <p>
+                                       Para asociar el nuevo método de pago debemos indicar a la variable "<span class="variableBgW">paymentMethod.PaymentMethod</span>" los detalles de la tarjeta nueva:
+                                    </p>
+
+                                    <div class="p-4 mb-4 panelCode">
+                                        <code>
+                                                <span class="comments">// Añadimos los nuevos datos de tarjeta al objeto paymentMethod</span>
+                                            <br>
+                                                <span class="variables">paymentMethod.PaymentMethod = newCardDetails;</span>
+                                        </code>
+                                    </div>
+
+                                <hr>
+
+                                <h5 id="envioOP" class="mt-3">
+                                    2.5 Envío de la modificación
+                                </h5>
+
+                                <p>
+                                    Para enviar la modificación a los servidores de Addon Payments, debemos emplear el modelo de excepciones "try - catch". 
+                                    <small class="form-text text-muted alert alert-primary">
+                                        --&gt;Para obtener más información sobre la excepción de "try - catch" puede ver la <a target="_blank" href="https://docs.microsoft.com/es-es/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions">documentación oficial de .NET</a>
+                                    </small>
+                                </p>
+
+                                <ul>
+                                    <li>
+                                        Llamamos al objeto "paymentMethod" y ejecutamos la función de guardar cambios: 
+                                        <span class="variableBgW">paymentMethod</span><span class="arrow">.SaveChanges();</span>
+                                    </li>
+                                </ul>
+
+                                <div class="p-4 mb-4 panelCode">
+                                    <code>
+                                            <span class="new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-4 variables">paymentMethod.SaveChanges();</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 comments">// Devolvemos la respuesta asociando los parámetros recibidos por el servidor</span>
+                                        <br>
+                                            <span class="pl-4 new">return </span><span class="variables">Ok(variable);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 comments">// Aconsejamos guardar los datos de la operacion en su base de datos en caso de querer gestionar de forma interna sus transacciones</span>
+                                        <br>
+                                        <br>
+                                            <span class="variables">}</span><span class="new"> catch </span><span class="variables">(</span><span class="imports">ApiException </span><span class="variables">exce</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="comments pl-4">// Añada aquí su tratamiento de errores</span>
+                                        <br>
+                                            <span class="pl-4 new">return </span><span class="variables">Ok(exce);</span>
+                                        <br>
+                                            <span class="variables">}</span>
+                                    </code>
+                                </div>
+
+                                <p class="pb-4">
+                                    Para la respuesta realizamos un <span class="arrow">return Ok()</span> de "<span class="arrow">exce</span>".
+                                    <br>
+                                    <br>
+                                    Con esta función obtenemos el motivo de la denegación del servidor. Para ver todos los errores de denegación actualizados, puede comprobar nuestra <a target="_blank" href="https://desarrolladores.addonpayments.com/#!/technical-resources/messages">documentación de Addon Payments.</a>
+                                </p>
+
+                            </div>
+                        </div>
+                        <!-- Fin punto 2 -->
+
+                        <!-- Punto 3 -->
+                        <div class="contenedor">
+                            <div class="pl-3 pt-3 pr-3 pb-4 mb-3 text-justify">
+                                <h3 class="pt-1" id="FormEjemplo1">
+                                    3. Formulario de ejemplo
+                                </h3>
+                                
+                                <hr>
+
+                                <p>
+                                    Para poder procesar la transacción con el formulario de ejemplo en su identificador, debe modificar el archivo "StorecardApiController.cs" que se encuentra en la ruta "Controllers\StorecardApiController.cs".
+                                </p>
+                                <p>
+                                    Debe introducir sus datos de configuración tal y como se muestra en el punto 2.1 de esta guía.
+                                </p>
+
+                                <hr>
+                                <h5 id="Formulario" class="mt-3">3.1 Formulario</h5>
+
+                                <p>
+                                    El siguiente formulario le permite editar una tarjeta asociada a un cliente en entorno de pruebas. Puede acceder al panel de administración ingresando en la siguiente URL e introduciendo sus datos de inicio de sesión:
+                                    <ul>
+                                         <li><a target="_blank" href="https://admin.sandbox.addonpayments.com">https://admin.sandbox.addonpayments.com.</a></li>
+                                    </ul>
+                                </p>
+
+                                <form id="formulario_envio" method="POST" autocomplete="off" class="col-lg-12" action="/EditcardApi">
+                                    <div class="row justify-content-around">
+                                        <div class="col-lg-4 pl-lg-4">
+                                            <div class="row">
+                                                <div class="col-lg-12 mt-2 mb-2 formulario">
+                                                    <!-- Datos de tarjeta -->
+
+                                                    <h4 class="pt-2">Datos de tarjeta</h4>
+
+                                                    <div class="form-group">
+                                                        <label for="cardNumber">Número de tarjeta</label>
+                                                        <input type="tel" onkeypress="return soloNumeros(event)" maxlength='25' class="form-control" id="cardNumber" name="cardNumber" placeholder="Número de tarjeta" required/>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label>Fecha de exipración</label>
+                                                            <input type="tel" maxlength='5' placeholder="MM/YY" class="form-control" id="fExpiry" name="fExpiry" required>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="key">Referencia del cliente</label>
+                                                            <input type="text" class="form-control" id="key" name="key" placeholder="Payer Ref" required/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="paymentRef">Referencia de la tarjeta</label>
+                                                        <input type="text" class="form-control" id="paymentRef" name="paymentRef" placeholder="PaymentRef" required/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="cardholderName">Nombre del titular</label>
+                                                        <input type="text" class="form-control" id="cardholderName" name="cardholder-name" placeholder="Nombre" required/>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                            <button type="submit" class="btn btn-block btn-primary" onclick="validate();">Actualizar tarjeta</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <hr>
+
+                                <h5 id="respuestaForm">
+                                    3.2 Respuesta de la operación
+                                </h5>
+
+                                <small class="form-text text-muted alert alert-primary">
+                                    --&gt; La respuesta se obtiene mediante la excepción "try - catch". Para ver más información puede ver la <a target="_blank" href="https://docs.microsoft.com/es-es/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions">documentación oficial de .NET</a>
+                                </small>
+
+                                <div id="server-results" class="pb-3 mb-2">
+                                    <p>
+                                        No se obtiene una respuesta cuando la tarjeta se actualiza correctamente, no obstante hemos añadido en el controlador un mensaje en caso de que el resultado de la operación sea correcto. En caso de haber algún tipo de error en la solicitud, la denegación aparecerá aquí.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin punto 3 -->
+
+                    </div>
+                    <!-- /Contenido común -->
+
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="../../../../assets/js/barraprogreso.js"></script>
+        <script src="../../../../assets/js/tarjetaformat.js"></script>
+
+        <script>
+            // Función para comprobar la valdiez de la tarjeta
+            function validate(){ // Basic form validation using the JS Library given as an example
+                var cardNumberCheck = RealexRemote.validateCardNumber(document.getElementById('cardNumber').value);
+                var cardHolderNameCheck = RealexRemote.validateCardHolderName(document.getElementById('cardholderName').value);
+                var expiryDate = document.getElementById('fExpiry').value;
+                var expiryDateFormatCheck = RealexRemote.validateExpiryDateFormat(expiryDate);
+                var expiryDatePastCheck = RealexRemote.validateExpiryDateNotInPast(expiryDate);
+
+                if (cardNumberCheck == false || cardHolderNameCheck == false || expiryDateFormatCheck == false || expiryDatePastCheck == false || cvnCheck == false) {
+                    // code here to inform the cardholder of an input error and prevent the form submitting
+                    return false; 
+                }else {
+                    return true;
+                }
+            }
+
+            // Petición AJAX para enviar el formulario sin recargar la web
+            $("#formulario_envio").submit(function(event){
+                event.preventDefault();
+                var url = $(this).attr("action"); // Valor del campo "action" del formulario
+                var method = $(this).attr("method"); // Valor del campo "method" del formulario
+                var datos = {
+                    Tarjeta: {
+                        cardNumber: $("#cardNumber").val().replace(/\s/g, ""),
+                        month: $("#fExpiry").val().substring(0, 2),
+                        year: $("#fExpiry").val().substring(3, 5),
+                        cardholderName: $("#cardholderName").val(),
+                    },
+                    Cliente: {
+                        payerref: $("#key").val(),
+                        paymentmethod: $("#paymentRef").val()
+                    }
+                }
+
+                $.ajax({
+                    url: url,
+                    type: method,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(datos)
+                }).done(function (respuesta) { //
+                    console.log(respuesta);
+                    if (respuesta.result == respuesta.result) {
+                        var json = respuesta.result;
+                        $("#server-results").html(json);
+                    } else {
+                        var json = respuesta.resultado;
+                        $("#server-results").html(json);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

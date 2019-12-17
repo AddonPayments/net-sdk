@@ -1,0 +1,936 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Víctor Cantera">
+        <link rel="icon" href="../../../../assets/img/comercia_ico.png" type="image/x-icon"/ >
+        <title>Pay By Link - SDK .NET</title>
+
+        <!-- Bootstrap 4.3.1 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../../../../assets/css/style.css">
+
+        <!-- Script para comprobar los datos de la tarjeta mediante HPP -->
+        <script src="../../../../assets/js/rxp-hpp.js"></script> <!-- Available at https://github.com/realexpayments -->
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-rpdc mb-3">
+            <a class="navbar-brand">
+                <img src="../../../../assets/img/log2.svg" width="30" height="30" class="img-fluid" alt="Logo Addon Payments">
+                <span class="addonNav">ADDON</span> <span>PAYMENTS</span>
+                <span class="d-none d-sm-none d-lg-inline d-xl-inline sdkNav">
+                    <span>
+                        /SDK
+                        <span class="barraNav">_</span>
+                        de
+                        <span class="barraNav">_</span>
+                        .NET
+                    </span>
+                </span>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto pl-2 pr-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Inicio
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item pl-2" href="../../../../index.html">Índice</a>
+                            <a class="dropdown-item pl-2" href="../../../errores.html">Errores de Addon Payments</a>
+                            <a class="dropdown-item pl-2" href="../../../informe.html">Convertir informe</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pagos con tarjeta
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../../API/01%20-%20Pagos_con_tarjeta/01%20-%20Autorización/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../../../API/01%20-%20Pagos_con_tarjeta/01%20-%20Autorización/DatosDelCliente.html">Datos adicionales</a>
+                                <a class="dropdown-item pl-2" href="../../../API/01%20-%20Pagos_con_tarjeta/02%20-%20OTB/index.html">OTB</a>
+                                <a class="dropdown-item pl-2" href="../../../API/01%20-%20Pagos_con_tarjeta/03%20-%20Credit/index.html">Credit</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../01%20-%20Autorizacion/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../02%20-%20OTB/index.html">OTB</a>
+                                <a class="dropdown-item pl-2 active" href="#">Pay By Link</a>
+                                <a class="dropdown-item pl-2" href="../04%20-%20Auth%20con%20iframe/index.html">Iframe</a>
+                                <a class="dropdown-item pl-2" href="../05%20-%20Lightbox/index.html">Lightbox</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Almacenamiento de tarjeta
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../../API/02%20-%20Almacenamiento%20de%20tarjeta/01%20-%20Crear%20un%20cliente/index.html">Crear un cliente</a>
+                                <a class="dropdown-item pl-2" href="../../../API/02%20-%20Almacenamiento%20de%20tarjeta/02%20-%20Almacenar%20una%20tarjeta/index.html">Almacenar una tarjeta</a>
+                                <a class="dropdown-item pl-2" href="../../../API/02%20-%20Almacenamiento%20de%20tarjeta/03%20-%20Editar%20tarjeta/index.html">Editar tarjetas</a>
+                                <a class="dropdown-item pl-2" href="../../../API/02%20-%20Almacenamiento%20de%20tarjeta/04%20-%20Eliminar%20tarjeta/index.html">Eliminar tarjetas</a>
+                                <a class="dropdown-item pl-2" href="../../../API/02%20-%20Almacenamiento%20de%20tarjeta/05%20-%20Auth/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../../../API/02%20-%20Almacenamiento%20de%20tarjeta/06%20-%20Credit/index.html">Credit</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../02%20-%20Almacenamiento%20de%20tarjeta/01%20-%20Crear%20un%20cliente/index.html">Crear un cliente</a>
+                                <a class="dropdown-item pl-2" href="../../02%20-%20Almacenamiento%20de%20tarjeta/02%20-%20Mostrar%20Tarjetas/index.html">Mostrar tarjetas</a>
+                        </div>
+                    </li>
+                      
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gestión de transacciones
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item pl-2" href="../../../API/03%20-%20Gestión%20de%20transacciones/01%20-%20Capturar/index.html">Settle (Capturar)</a>
+                            <a class="dropdown-item pl-2" href="../../../API/03%20-%20Gestión%20de%20transacciones/02%20-%20Rebate/index.html">Rebate (Devolución)</a>
+                            <a class="dropdown-item pl-2" href="../../../API/03%20-%20Gestión%20de%20transacciones/03%20-%20Void/index.html">Void (Anular transacción)</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filtro de fraude
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                              
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"  href="../../../API/05%20-%20Fraud%20Management/01%20-%20Fraud%20Filter/index.html">Filtro de fraude</a>
+                                <a class="dropdown-item pl-2"  href="../../../API/05%20-%20Fraud%20Management/02%20-%20Address%20Verification">Verificación de dirección</a>
+                                <a class="dropdown-item pl-2"  href="../../../API/05%20-%20Fraud%20Management/03%20-%20Hold">Retener transacción</a>
+                                <a class="dropdown-item pl-2"  href="../../../API/05%20-%20Fraud%20Management/04%20-%20Lanzamiento">Lanzar transacción</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"  href="../../03%20-%20Fraud%20Management/01%20-%20Fraud%20Filter/index.html">Filtro de fraude</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            DCC
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"href="../../04%20-%20DCC/index.html">Operación con DCC</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- /NAVBAR -->
+
+        <div class="col-lg-12"> 
+            <div id="contenidoComun" class="container-fluid">
+                <div class="row">
+
+                    <!-- Menú lateral -->
+                    <div class="col-lg-2 sticky-top d-none d-sm-none d-lg-block d-xl-block MenuLateral">
+
+                        <!-- Barra de progreso -->
+                        <div class="progress-bar" id="progreso"></div>
+                        <!-- /Barra de progreso -->
+
+                	    <nav class="navbar sticky-top navbar-light" style="padding: 0px;">
+                	        <nav class="nav nav-pills flex-column">
+                	            <a class="nav-link" href="#PBLink">1. Pay By Link</a>
+                	            <nav>
+                	                <a class="nav-link ml-3 my-1" href="#codigoEjemplo">1.1 Código de ejemplo</a>
+                	            </nav>
+                	            <a class="nav-link" href="#descripciones">2. Descripciones</a>
+                	            <nav>
+                	                <a class="nav-link ml-3 my-1" id="#variables" href="#variables">2.1 Declaración de variables</a>
+                	                <a class="nav-link ml-3 my-1" id="#envPetition" href="#envPetition">2.2 Envío de la petición</a>
+                	            </nav>
+                	            <a class="nav-link" href="#form3">3. Formulario de ejemplo</a>
+                	            <nav>
+                	                <a class="nav-link ml-3 my-1" href="#form3.1">3.1 Formulario</a>
+                	                <a class="nav-link ml-3 my-1" href="#response">3.2 Respuesta de operación</a>
+                	            </nav>
+                	        </nav>
+                	    </nav>
+                	</div>
+                	<div class="col-lg-10" >
+                	    <!-- Punto 1 -->
+                	    <div class="contenedor">
+                	        <div class="pl-3 pt-3 pr-3 pb-4 mb-3 text-justify">
+                	            <h3 id="PBLink" class="titulo">
+                	              1. Pay By Link
+                	            </h3>
+                	            <hr>
+
+                	            <p>
+                	              Para los comercios que deseen insertar un enlace de pago en un SMS o un correo electrónico, puede enviar una solicitud a HPP para crear un enlace de transacción que se pagará dentro de las 24 horas. HPP responderá con el enlace de pago dedicado que luego se puede enviar a su cliente.
+                	            </p>
+                	            <p class="alert alert-primary" role="alert">
+                	              Para crear el enlace, puede enviar la solicitud JSON con los detalles de la transacción al HPP, la solicitud debe enviarse con el siguiente encabezado: <b>"Content-Type: application/JSON"</b>
+                	            </p>
+
+                	            <h5 style="" class="pt-3" id="codigoEjemplo">
+                	                1.1 Código de ejemplo
+                	            </h5>
+                	            
+                	            <hr>
+
+                	            <!-- Código ejemplo-->
+                	            <div class="p-4 panelCode">
+                	                <code>
+                	                    <span class="etiqueta">using </span><span class="variables">Microsoft.AspNetCore.Mvc;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">GlobalPayments.Api.Utils;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">System.Net.Http;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">System.Threading.Tasks;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">Newtonsoft.Json;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">System.Net.Mime;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">System.Text;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">System;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">System.Net;</span>
+                                        <br>
+                                        <br>
+                                            <span class="etiqueta">namespace </span><span class="variables">AddonPayments.Controllers {</span>
+                                        <br>
+                                            <span class="pl-4 variables">[</span><span class="imports">ApiController</span><span class="variables">]</span>
+                                        <br>
+                                            <span class="pl-4 variables">[</span><span class="imports">Route</span><span class="variables">(</span><span class="orange">"[Controller]"</span><span class="variables">)]</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 etiqueta">public class </span><span class="imports">PayByLinkController</span><span class="variables">: </span><span class="imports">ControllerBase </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-5 variables">[</span><span class="imports">HttpPost</span><span class="variables">]</span>
+                                        <br>
+                                            <span class="pl-5 etiqueta">public async </span><span class="imports">Task</span><span class="variables"><</span><span class="service">IActionResult</span><span class="variables">> </span><span class="variables">PayByLink() {</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Shared Secret del terminal</span>
+                                        <br>
+                                            <span class="pl-6 new">string </span><span class="variables">SharedSecret = </span><span class="orange">"secret"</span><span class="variables">;</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Timestamp</span>
+                                        <br>
+                                            <span class="pl-6 new">string </span><span class="variables">time = </span><span class="imports">GenerationUtils</span><span class="variables">.GenerateTimestamp();</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Order ID</span>
+                                        <br>
+                                            <span class="pl-6 new">string </span><span class="variables">orderID = </span><span class="imports">GenerationUtils</span><span class="variables">.GenerateOrderId();</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Calculamos la firma concatenando los valores obligatorios</span>
+                                        <br>
+                                            <span class="pl-6 new">string </span><span class="variables">firma = </span><span class="imports">GenerationUtils</span><span class="variables">.GenerateHash(SharedSecret, time, </span><span class="orange">"addonnettest"</span><span class="variables">, orderID, <span class="orange">"1001"</span>, </span><span class="orange">"EUR"</span><span class="variables">);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Petición Pay By Link</span>
+                                        <br>
+                                            <span class="pl-6 new">using </span><span class="variables">(</span><span class="imports">HttpClient </span><span class="variables">client = </span><span class="new">new </span><span class="imports">HttpClient</span><span class="variables">()) {</span>
+                                        <br>
+                                            <span class="pl-7 imports">PayByLink </span><span class="variables">datos = </span><span class="new">new </span><span class="imports">PayByLink</span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-9 variables">TIMESTAMP = time,</span>
+                                        <br>
+                                            <span class="pl-9 variables">AMOUNT = </span><span class="orange">"1001"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">ORDER_ID = orderID,</span>
+                                        <br>
+                                            <span class="pl-9 variables">SHA1HASH = firma,</span>
+                                        <br>
+                                            <span class="pl-9 variables">MERCHANT_RESPONSE_URL = </span><span class="orange">"https://midominio.es/ResponseHpp"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">MERCHANT_ID = </span><span class="orange">"addonnettest"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">ACCOUNT = </span><span class="orange">"api"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">AUTO_SETTLE_FLAG = </span><span class="orange">"1"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">CURRENCY = </span><span class="orange">"EUR"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_VERSION = </span><span class="orange">"2"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">COMMENT1 = </span><span class="orange">"Comentarios"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_LANG = </span><span class="orange">"ES"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_CUSTOMER_EMAIL = </span><span class="orange">"soporte@addonpayments.com"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_CUSTOMER_PHONENUMBER_MOBILE = </span><span class="orange">"914353028"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_BILLING_STREET1 = </span><span class="orange">"Dirección de facturación 1"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_BILLING_STREET2 = </span><span class="orange">"Dirección de facturación 2"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_BILLING_STREET3 = </span><span class="orange">"Dirección de facturación 3"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_BILLING_CITY = </span><span class="orange">"Ciudad de facturación"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_BILLING_POSTALCODE = </span><span class="orange">"Código postal de facturación"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_SHIPPING_STREET1 = </span><span class="orange">"Dirección de envío 1"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_SHIPPING_STREET2 = </span><span class="orange">"Dirección de envío 2"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_SHIPPING_STREET3 = </span><span class="orange">"Dirección de envío 3"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_SHIPPING_CITY = </span><span class="orange">"Ciudad de envío"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_SHIPPING_STATE = </span><span class="orange">"País de envío"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">HPP_SHIPPING_POSTALCODE = </span><span class="orange">"Código postal de envío"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">CUST_NUM = </span><span class="orange">"Número de cliente"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">VAR_REF = </span><span class="orange">"Varref"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">PROD_ID = </span><span class="orange">"ID de producto"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-9 variables">SUPPLEMENTARY_DATA = </span><span class="orange">"Datos adicionales"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">};</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-7 comments">// Lanzamos la petición al servidor de Addon Payments</span>
+                                        <br>
+                                            <span class="pl-7 new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-8 new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-10 new">var </span><span class="variables">jsonObject = </span><span class="imports">JsonConvert</span><span class="variables">.SerializeObject(datos);</span>
+                                        <br>
+                                            <span class="pl-10 imports">StringContent </span><span class="variables">content = </span><span class="new">new </span><span class="imports">StringContent</span><span class="variables">(jsonObject, </span><span class="imports">Encoding</span><span class="variables">.UTF8, </span><span class="imports">MediaTypeNames</span><span class="variables">.</span><span class="imports">Application</span><span class="variables">.Json);</span>
+                                        <br>
+                                            <span class="pl-10 imports">HttpResponseMessage </span><span class="variables">response = </span><span class="new">await </span><span class="variables">client.PostAsync(</span><span class="orange">"https://hpp.sandbox.addonpayments.com/pay"</span><span class="variables">, content);</span>
+                                        <br>
+                                            <span class="pl-10 new">string </span><span class="variables">responseBody = </span><span class="new">await </span><span class="variables">response.Content.ReadAsStringAsync();</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-10 new">if </span><span class="variables">(response.StatusCode == </span><span class="imports">HttpStatusCode</span><span class="variables">.BadRequest) {</span>
+                                        <br>
+                                            <span class="pl-11 new">throw new </span><span class="imports">Exception</span><span class="variables">(responseBody);</span>
+                                        <br>
+                                            <span class="pl-10 variables">}</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-10 new">return </span><span class="variables">Ok(responseBody);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-8 variables">}</span><span class="new"> catch </span><span class="variables">(</span><span class="imports">Exception </span><span class="variables">ex</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="pl-10 new">return </span><span class="variables">BadRequest(ex.Message);</span>
+                                        <br>
+                                            <span class="pl-8 variables">} </span>
+                                        <br>
+                                            <span class="pl-7 variables">} </span><span class="new">catch </span><span class="variables">(</span><span class="imports">HttpRequestException </span><span class="variables">e</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="pl-10 new">return </span><span class="variables">Ok(e);</span>
+                                        <br>
+                                            <span class="pl-7 variables">} </span>
+                                        <br>
+                                            <span class="pl-6 variables">}</span>
+                                        <br>
+                                            <span class="pl-5 variables">}</span>
+                                        <br>
+                                            <span class="pl-4 variables">}</span>
+                                        <br>
+                                            <span class="variables">}</span>
+                	                </code>
+                	            </div>
+                	            <!-- Fin código ejemplo-->
+                	        </div>            
+                	    </div>
+                	    <!-- Punto 2 -->
+                	    <div class="contenedor">
+                	        <div class="pl-3 pt-3 mb-4 pb-1 pr-3 text-justify">
+                                <h3 class="pt-1" id="descripciones">
+                                    2. Descripciones
+                                </h3>
+                                <hr>
+
+                                <h5 id="variables">2.1 Declaración de variables</h5>
+                                    <p>
+                                        Para calcular la clave SHA1 debemos declarar las variables necesarias para realizar la cadena:
+                                    </p>
+
+                                    <ul>
+                                        <li>
+                                            Shared Secret  = Shared Secret porporcionado por Addon Payments.
+                                        </li>
+
+                                        <ul>
+                                            <li>
+                                                <span class="variableBgW">SharedSecret </span><span class="arrow"> = "</span><span class="comentariosBgW">secret</span><span class="arrow">";</span>
+                                            </li>
+                                        </ul>
+
+                                        <br>
+
+                    	                <li>
+                    	                  Timestamp = Formato de la fecha actual indicando el año, la hora, los minutos y los segundos:
+                    	                </li>
+
+                                        <ul>
+                    	                    <li>
+                    	                      <span class="variableBgW">time </span><span class="arrow">= GenerationUtils</span><span class="comentariosBgW">.GenerateTimestamp()</span><span class="arrow">;</span>
+                    	                    </li>
+                                        </ul>
+
+                                        <br>
+
+                                        <li>
+                                            Order ID = Identificador de la transacción que lanzamos al servidor de Addon Payments.
+                                        </li>
+
+                                        <ul>
+                                            <li>
+                                                <span class="variableBgW">orderID </span><span class="arrow">= GenerationUtils</span><span class="comentariosBgW">.GenerateTimestamp()</span><span class="arrow">;</span>
+                                            </li>
+                                        </ul>
+
+                                        <br>
+
+                                        <li>
+                                            Firma SHA1 = Calculamos la clave SHA1 con nuestro Shared Secret y la cadena que hemos concatenado anteriormente.
+                                        </li>
+
+                                        <ul>
+                                            <li>
+                                                <span class="variableBgW">firma </span><span class="arrow">= GenerationUtils</span><span class="comentariosBgW">.GenerateTimestamp(<span class="variableBgW">SharedSecret, time, "addonnettest", orderID, "1001", "EUR"</span><span class="comentariosBgW">)</span><span class="arrow">;</span>
+                                            </li>
+                                        </ul>
+                                    </ul>
+                	              <div class="p-4 mb-4 panelCode">
+                	                <code>
+                                            <span class="comments">// Shared Secret del terminal</span>
+                                        <br>
+                                            <span class="new">string </span><span class="variables">SharedSecret = </span><span class="orange">"secret"</span><span class="variables">;</span>
+                                        <br>
+                                        <br>
+                                            <span class="comments">// Timestamp</span>
+                                        <br>
+                                            <span class="new">string </span><span class="variables">time = </span><span class="imports">GenerationUtils</span><span class="variables">.GenerateTimestamp();</span>
+                                        <br>
+                                        <br>
+                                            <span class="comments">// Order ID</span>
+                                        <br>
+                                            <span class="new">string </span><span class="variables">orderID = </span><span class="imports">GenerationUtils</span><span class="variables">.GenerateOrderId();</span>
+                                        <br>
+                                        <br>
+                                            <span class="comments">// Calculamos la firma concatenando los valores obligatorios</span>
+                                        <br>
+                                            <span class="new">string </span><span class="variables">firma = </span><span class="imports">GenerationUtils</span><span class="variables">.GenerateHash(SharedSecret, time, </span><span class="orange">"addonnettest"</span><span class="variables">, orderID, <span class="orange">"1001"</span>, </span><span class="orange">"EUR"</span><span class="variables">);</span>
+                	                </code>
+                	              </div>
+
+                	                <ul>
+                	                  <li>
+                	                    Datos = Realizamos un array con todos los datos que vamos a enviar al servidor de Addon Payments. <a target="_blank" href="https://desarrolladores.addonpayments.com/#!/hosted-payments/pay-by-link">Puede ver nuestra documentación para obtener más información al respecto.</a>
+                	                  </li>
+                	                </ul>
+                	                <div class="p-4 mb-4 panelCode">
+                	                  <code>
+                	                    <span class="imports">PayByLink </span><span class="variables">datos = </span><span class="new">new </span><span class="imports">PayByLink</span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-4 variables">TIMESTAMP = time,</span>
+                                        <br>
+                                            <span class="pl-4 variables">AMOUNT = </span><span class="orange">"1001"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">ORDER_ID = orderID,</span>
+                                        <br>
+                                            <span class="pl-4 variables">SHA1HASH = firma,</span>
+                                        <br>
+                                            <span class="pl-4 variables">MERCHANT_RESPONSE_URL = </span><span class="orange">"https://midominio.es/ResponseHpp"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">MERCHANT_ID = </span><span class="orange">"addonnettest"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">ACCOUNT = </span><span class="orange">"api"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">AUTO_SETTLE_FLAG = </span><span class="orange">"1"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">CURRENCY = </span><span class="orange">"EUR"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_VERSION = </span><span class="orange">"2"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">COMMENT1 = </span><span class="orange">"Comentarios"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_LANG = </span><span class="orange">"ES"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_CUSTOMER_EMAIL = </span><span class="orange">"soporte@addonpayments.com"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_CUSTOMER_PHONENUMBER_MOBILE = </span><span class="orange">"914353028"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_BILLING_STREET1 = </span><span class="orange">"Dirección de facturación 1"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_BILLING_STREET2 = </span><span class="orange">"Dirección de facturación 2"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_BILLING_STREET3 = </span><span class="orange">"Dirección de facturación 3"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_BILLING_CITY = </span><span class="orange">"Ciudad de facturación"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_BILLING_POSTALCODE = </span><span class="orange">"Código postal de facturación"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_SHIPPING_STREET1 = </span><span class="orange">"Dirección de envío 1"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_SHIPPING_STREET2 = </span><span class="orange">"Dirección de envío 2"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_SHIPPING_STREET3 = </span><span class="orange">"Dirección de envío 3"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_SHIPPING_CITY = </span><span class="orange">"Ciudad de envío"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_SHIPPING_STATE = </span><span class="orange">"País de envío"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">HPP_SHIPPING_POSTALCODE = </span><span class="orange">"Código postal de envío"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">CUST_NUM = </span><span class="orange">"Número de cliente"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">VAR_REF = </span><span class="orange">"Varref"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">PROD_ID = </span><span class="orange">"ID de producto"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-4 variables">SUPPLEMENTARY_DATA = </span><span class="orange">"Datos adicionales"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="variables">};</span>
+                	                </code>
+                	            </div>
+
+                	            <hr>
+
+                	            <h5 id="envPetition" class="mt-3">
+                	                2.2 Envío de la petición
+                	            </h5>
+
+                	              <p>
+                	                Para realizar el envío de la petición al servidor de Addon Payments, usamos el método HttpClient en .NET.
+                	              </p>
+
+                	              <ul>
+                	                <li>
+                	                  Iniciamos la petición indicando el nuevo objeto 'client':
+                	                </li>
+                	                <ul>
+                	                  <li>
+                	                    <span class="arrow">using (HttpClient </span><span class="comentariosBgW">client </span><span class="arrow">= HttpClient()) {}</span>
+                	                  </li>
+                	                </ul>
+
+                	                <br>
+
+                	                <li>
+                                        Serializamos los datos indicados anteriormente en el punto 2.1:
+                	                </li>
+                	                <ul>
+                	                  <li>
+                	                    <span class="arrow">var jsonObject = </span><span class="comentariosBgW">JsonConvert</span><span class="arrow">.SerializeObject(</span><span class="comentariosBgW">datos</span><span class="arrow">);</span>
+                	                  </li>
+                	                </ul>
+
+                	                <br>
+
+                	                <li>
+                                        Indicamos la cabecera de la petición "Content-type: JSON" y la codificación "UTF8":
+                	                </li>
+                	                <ul>
+                	                  <li>
+                	                    <span class="arrow">StringContent content = </span><span class="orangeBgW">new </span><span class="arrow">StringContent(</span><span class="comentariosBgW">jsonObject</span><span class="arrow">, Encoding.</span><span class="comentariosBgW">UTF8</span><span class="arrow">, </span><span class="arrow">MediaTypeNames.Application.</span><span class="comentariosBgW">Json</span><span class="arrow">);</span>
+                	                  </li>
+                	                </ul>
+
+                	                <br>
+
+                	                <li>
+                                        Indicamos la URL del servidor de forma asíncrona:
+                	                </li>
+                	                <ul>
+                                        <li>
+                                            <span class="arrow">HttpResponseMessage response = </span><span class="orangeBgW">await </span><span class="arrow">client.PostAsync(</span><span class="comentariosBgW">"https://hpp.sandbox.addonpayments.com/pay"</span><span class="arrow">, content);</span>
+                                        </li>
+                	                </ul>
+
+                	                <br>
+
+                	                <li>
+                                        Obtenemos la respuesta del servidor:
+                	                </li>
+                	                <ul>
+                                        <li>
+                                            <span class="arrow">string responseBody = </span><span class="orangeBgW">await </span><span class="arrow">response.Content.ReadAsStringAsync();</span>
+                                        </li>
+                	                </ul>
+
+                	                <br>
+
+                	                <li>
+                                        Devolvemos la respuesta al front:
+                	                </li>
+                	                <ul>
+                                        <li>
+                                            <span class="arrow">return Ok(</span><span class="comentariosBgW">responseBody</span><span class="arrow">);</span>
+                                        </li>
+                	                </ul>
+                	              </ul>
+
+                	              <div class="p-4 mb-4 panelCode">
+                	                <code>
+                                            <span class="comments">// Lanzamos la operación al servidor de Addon Payments</span>
+                                        <br>
+                	                       <span class="new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-4 new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-5 new">var </span><span class="variables">jsonObject = </span><span class="imports">JsonConvert</span><span class="variables">.SerializeObject(datos);</span>
+                                        <br>
+                                            <span class="pl-5 imports">StringContent </span><span class="variables">content = </span><span class="new">new </span><span class="imports">StringContent</span><span class="variables">(jsonObject, </span><span class="imports">Encoding</span><span class="variables">.UTF8, </span><span class="imports">MediaTypeNames</span><span class="variables">.</span><span class="imports">Application</span><span class="variables">.Json);</span>
+                                        <br>
+                                            <span class="pl-5 imports">HttpResponseMessage </span><span class="variables">response = </span><span class="new">await </span><span class="variables">client.PostAsync(</span><span class="orange">"https://hpp.sandbox.addonpayments.com/pay"</span><span class="variables">, content);</span>
+                                        <br>
+                                            <span class="pl-5 new">string </span><span class="variables">responseBody = </span><span class="new">await </span><span class="variables">response.Content.ReadAsStringAsync();</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-5 new">if </span><span class="variables">(response.StatusCode == </span><span class="imports">HttpStatusCode</span><span class="variables">.BadRequest) {</span>
+                                        <br>
+                                            <span class="pl-6 new">throw new </span><span class="imports">Exception</span><span class="variables">(responseBody);</span>
+                                        <br>
+                                            <span class="pl-5 variables">}</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-5 new">return </span><span class="variables">Ok(responseBody);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 variables">}</span><span class="new"> catch </span><span class="variables">(</span><span class="imports">Exception </span><span class="variables">ex</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="pl-5 new">return </span><span class="variables">BadRequest(ex.Message);</span>
+                                        <br>
+                                            <span class="pl-4 variables">} </span>
+                                        <br>
+                                            <span class="variables">} </span><span class="new">catch </span><span class="variables">(</span><span class="imports">HttpRequestException </span><span class="variables">e</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="pl-4 new">return </span><span class="variables">Ok(e);</span>
+                                        <br>
+                                            <span class="variables">} </span>
+                	                </code>
+                	            </div>
+                	        </div>            
+                	    </div>
+                	    <!-- Fin punto 2 -->
+                	
+                	    <!-- Punto 3 -->
+                	    <div class="contenedor">
+                	        <div class="pl-3 pt-3 mb-2 pb-2 pr-3 text-justify">
+                	            <h3 class="pt-1" id="form3">
+                	                3. Formulario de ejemplo
+                	            </h3>
+
+                	            <hr>
+
+                	            <p>
+                	                Para poder procesar la transacción con el formulario de ejemplo en su identificador, debe modificar el archivo "PayByLinkController.cs" que se encuentra en la ruta "Controllers\PayByLinkController.cs".
+                	            </p>
+
+                	            <p>
+                	                Debe introducir sus datos de configuración tal y como se muestra en el punto 2.1 "Configuración del terminal".
+                	            </p>
+
+                	            <hr>
+
+                	            <h5 id="form3.1" class="mt-3">
+                	                3.1 Formulario
+                	            </h5>
+
+                	            <p>
+                	                El siguiente formulario le permite enviar una validación contra el entorno de pruebas de Addon Payments introduciendo los datos adicionales del usuario.
+                	            </p>
+
+                	            <form id="formulario_envio" method="POST" autocomplete="off" class="col-lg-12" action="/PayByLink">
+                	            <!-- Caja 1 -->
+                	            <div class="row justify-content-around formulario">
+                	                <!-- Datos del pagador-->
+                	                    <div class="col-lg-4">
+                	                        <div class="row">
+                	                            <div class="col-lg-12 mt-2">
+                	                                <h4 class="pt-2">Datos del pagador</h4>
+                	                                <div class="form-row">
+                	                                  <div class="form-group col-md-4">
+                	                                      <label for="tel">Teléfono</label>
+                	                                      <input type="tel" class="form-control" id="tel" name="tel" value="123456789" />
+                	                                  </div>
+                	                                  <div class="form-group col-md-8">
+                	                                      <label for="email">Email</label>
+                	                                      <input type="email" class="form-control" id="email" name="email" value="email@ejemplo.com" />
+                	                                  </div>
+                	                                </div>
+
+                	                                <div class="form-group">
+                	                                     <label for="lang">Lenguaje de la pasarela</label>
+                	                                    <select class="form-control" name="lang" id="lang">
+                	                                        <option value="es" name="lang">Español</option>
+                	                                        <option value="es_ca" name="lang">Catalan</option>
+                	                                        <option value="es_eu" name="lang">Vasco</option>
+                	                                        <option value="en" name="lang">Inglés</option>
+                	                                    </select>
+                	                                </div>
+
+                	                                <div class="form-group">
+                	                                    <label for="comment1">Comentarios</label>
+                	                                    <textarea type="textarea" maxlength="255" placeholder="Comentarios" class="form-control" id="comment1" name="comment1" value="comment1" style="height: 124px;"></textarea>
+                	                                </div>
+                	                            </div>
+                	                        </div>
+                	                    </div>
+                	                <!-- /Datos del pagador-->
+
+                	                <!-- Datos del facturación-->
+                	                    <div class="col-lg-4 pl-lg-4">
+                	                        <div class="row">
+                	                            <div class="col-lg-12 mt-2">
+                	                                <h4 class="pt-2">Datos de facturación</h4>
+
+                	                                <div class="form-group">
+                	                                    <label for="bill1">Dirección 1 de facturación</label>
+                	                                    <input type="text" class="form-control" id="bill1" name="bill1" value="Los Preciados 123" />
+                	                                </div>
+                	                                <div class="form-group">
+                	                                    <label for="bill2">Dirección 2 de facturación</label>
+                	                                    <input type="text" class="form-control" id="bill2" name="bill2" value="Plaza Catalunya 456" />
+                	                                </div>
+
+                	                                <div class="form-row">
+                	                                    <div class="form-group col-md-8">
+                	                                        <label for="bill3">Dirección 3 de facturación</label>
+                	                                        <input type="text" class="form-control" id="bill3" name="bill3" value="Sótano" />
+                	                                    </div>
+                	                                    <div class="form-group col-md-4">
+                	                                        <label for="pais">País</label>
+                	                                        <select class="form-control" name="pais">
+                	                                            <option value="ES" name="pais" id="pais">España</option>
+                	                                            <option value="GB" name="pais" id="pais">Reino Unido</option>
+                	                                        </select>
+                	                                    </div>
+                	                                </div>
+
+                	                                <div class="form-row">
+                	                                    <div class="form-group col-md-6">
+                	                                        <label for="billcity">Ciudad</label>
+                	                                        <input type="text" class="form-control" id="billcity" name="billcity" value="Elche" />
+                	                                    </div>
+                	                                    <div class="form-group col-md-6">
+                	                                        <label for="billCP">Código Postal</label>
+                	                                        <input type="text" class="form-control" id="billCP" name="billCP" value="03201" />
+                	                                    </div>
+                	                                </div>
+                	                            </div>
+                	                        </div>
+                	                    </div>
+                	                <!-- /Datos del facturación-->
+
+                	                <!-- Datos del envío-->
+                	                    <div class="col-lg-4 pl-lg-4">
+                	                        <div class="row">
+                	                            <div class="col-lg-12 mt-2">
+
+                	                            <h4 class="pt-2">Datos de envío</h4>
+                	                            
+                	                                <div class="form-group">
+                	                                    <label for="ship1">Dirección 1 de envío</label>
+                	                                    <input type="text" class="form-control" id="ship1" name="ship1" value="Envío 123" />
+                	                                </div>
+                	                                <div class="form-group">
+                	                                    <label for="ship2">Dirección 2 de envío</label>
+                	                                    <input type="text" class="form-control" id="ship2" name="ship2" value="Envío 456" />
+                	                                </div>
+                	                                <div class="form-row">
+                	                                    <div class="form-group col-md-8">
+                	                                        <label for="ship3">Dirección 3 de envío</label>
+                	                                        <input type="text" class="form-control" id="ship3" name="ship3" value="Azotea" />
+                	                                    </div>
+                	                                    <div class="form-group col-md-4">
+                	                                        <label for="shipstate">País</label>
+                	                                        <select class="form-control" name="shipstate">
+                	                                            <option value="ES" name="shipstate" id="shipstate">España</option>
+                	                                            <option value="GB" name="shipstate" id="shipstate">Reino Unido</option>
+                	                                        </select>
+                	                                    </div>
+                	                                </div>
+
+                	                                <div class="form-row">
+                	                                    <div class="form-group col-md-6">
+                	                                        <label for="shipcity">Ciudad</label>
+                	                                        <input type="text" class="form-control" id="shipcity" name="shipcity" value="Elche" />
+                	                                    </div>
+                	                                    <div class="form-group col-md-6">
+                	                                        <label for="shipCP">Código Postal</label>
+                	                                        <input type="text" class="form-control" id="shipCP" name="shipCP" value="03201" />
+                	                                    </div>
+                	                                </div>
+                	                            </div>
+                	                        </div>
+                	                    </div>
+                	                <!-- /Datos del envío-->
+                	            </div>
+                	            <!-- /Caja 1 -->
+                	            <!-- Caja 2 -->
+                	                <div class="row justify-content-around">
+                	                    <div class="col-lg-4 pl-lg-4">
+                	                        <div class="row">
+                	                            <div class="col-lg-12 mt-3 mb-2 formulario">
+                	                                <!-- Datos de tarjeta -->
+
+                	                                <h4 class="pt-2">Datos del producto</h4>
+
+                	                                <div class="form-group">
+                	                                  <label for="varref">VAR_REF</label>
+                	                                  <input type="text" maxlength="50" class="form-control" id="varref" name="varref" value="QBCT5478-6h6fq7ed6-f9f3qwf" required/>
+                	                                </div>
+
+                	                                <div class="form-row">
+                	                                    <div class="form-group col-md-6">
+                	                                      <label>PROD_ID</label>
+                	                                      <input type="text" maxlength='50' class="form-control" id="prodid" name="prodid" value="152468748" required>
+                	                                    </div>
+                	                                    <div class="form-group col-md-6">
+                	                                      <label for="cust">CUST_NUM</label>
+                	                                      <input type="text" maxlength="50" class="form-control" id="cust" name="cust" value="2394jadi-Q23R2Q-D21234" required/>
+                	                                    </div>
+                	                                </div>
+
+                	                                <div class="form-group">
+                	                                  <label for="">Datos adicionales</label>
+                	                                  <textarea type="text" class="form-control" id="supp" name="supp" placeholder="Datos adicionales"></textarea>
+                	                                </div>
+
+                	                              <p>
+                	                                <input type="hidden" id="importe" name="importe" value="56420" />
+                	                                <b>Importe:</b> <span>564.20€</span>
+                	                              </p>
+                	                                <!-- Datos de tarjeta -->
+                	                                <div class="form-group row">
+                	                                    <div class="col-sm-12">
+                	                                        <button type="submit" class="btn btn-block btn-primary">Crear enlace</button>
+                	                                    </div>
+                	                                </div>
+                	                            </div>
+                	                        </div>
+                	                    </div>
+                	                </div>
+                	            <!-- /Caja 2 -->
+                	            </form>
+                	            
+                	            <hr>
+
+                	            <h5 id="response">
+                	                3.2 Respuesta de la operación
+                	            </h5>
+
+                	            <small class="form-text text-muted alert alert-primary">
+                                    --&gt; La respuesta se obtiene mediante la excepción "try - catch" en el archivo "ResponseHppController.cs". Para ver más información puede ver la <a target="_blank" href="https://docs.microsoft.com/es-es/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions">documentación oficial de .NET</a>
+                                </small>
+
+                	            <div id="server-results" class="pb-2">
+                	                <p>
+                	                    Su respuesta aparecerá aquí.
+                	                </p>
+                	            </div>
+                	        </div>
+                	    </div>
+                	    <!-- Fin punto 3 -->
+            	   
+                    </div>
+                    <!-- /Contenido común -->
+
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="../../../../assets/js/barraprogreso.js"></script>
+
+        <script>
+            // Petición AJAX para enviar el formulario sin recargar la web
+            $("#formulario_envio").submit(function(event){
+                event.preventDefault();
+                var url = $(this).attr("action"); // Valor del campo "action" del formulario
+                var method = $(this).attr("method"); // Valor del campo "method" del formulario
+                var datos = {
+                    Cliente: {
+                        workphone: $("#tel").val(),
+                        email: $("#email").val(),
+                        lang: $("#lang").val(),
+                        comments: $("#comment1").val(),
+                        suplementary: $("#supp").val()
+                    },
+                    Op: {
+                        importe: $("#importe").val()
+                    },
+                    Billing: {
+                        billing1: $("#bill1").val(),
+                        billing2: $("#bill2").val(),
+                        billing3: $("#bill3").val(),
+                        billingstate: $("#pais").val(),
+                        billingcity: $("#billcity").val(),
+                        billingcode: $("#billCP").val()
+                    },
+                    Shipping: {
+                        street1: $("#ship1").val(),
+                        street2: $("#ship2").val(),
+                        street3: $("#ship3").val(),
+                        enviostate: $("#shipstate").val(),
+                        enviocity: $("#shipcity").val(),
+                        enviocode: $("#shipCP").val()
+                    },
+                    Fraud: {
+                        varref: $("#varref").val(),
+                        prodid: $("#prodid").val(),
+                        custnum: $("#cust").val()
+                    }
+                }
+                
+                $.ajax({
+                    url: url,
+                    type: method,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(datos)
+                }).done(function (respuesta) { //
+                    console.log("Enlace: " + respuesta.hppPayByLink);
+                    if (respuesta.hppPayByLink == respuesta.hppPayByLink) {
+                        var json = "Enlace para realizar el pago = <a href=' " + respuesta.hppPayByLink + "' target='_blank'>" + respuesta.hppPayByLink + "</a>";
+
+                        $("#server-results").html(json);
+                    } else {
+                        var json = respuesta.e;
+                        $("#server-results").html(json);
+                    }
+                }).catch(function (respuesta) { //
+                    console.log(respuesta);
+                    $("#server-results").html(
+                        "Error al procesar su solicitud, por favor revise los datos que está enviando. <br><br> Respuesta del servidor de Addon Payments = "
+                        + respuesta.responseText
+                    )
+                });
+            });
+        </script>
+
+    </body>
+</html>

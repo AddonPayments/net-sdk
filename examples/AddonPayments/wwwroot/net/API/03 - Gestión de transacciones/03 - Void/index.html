@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Víctor Cantera">
+        <link rel="icon" href="../../../../assets/img/comercia_ico.png" type="image/x-icon"/ >
+        <title>Void - SDK .NET</title>
+
+        <!-- Bootstrap 4.3.1 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../../../../assets/css/style.css">
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-rpdc mb-3">
+            <a class="navbar-brand">
+                <img src="../../../../assets/img/log2.svg" width="30" height="30" class="img-fluid" alt="Logo Addon Payments">
+                <span class="addonNav">ADDON</span> <span>PAYMENTS</span>
+                <span class="d-none d-sm-none d-lg-inline d-xl-inline sdkNav">
+                    <span>
+                        /SDK
+                        <span class="barraNav">_</span>
+                        de
+                        <span class="barraNav">_</span>
+                        .NET
+                    </span>
+                </span>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto pl-2 pr-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Inicio
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item pl-2" href="../../../../index.html">Índice</a>
+                            <a class="dropdown-item pl-2" href="../../../errores.html">Errores de Addon Payments</a>
+                            <a class="dropdown-item pl-2" href="../../../informe.html">Convertir informe</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link dropdown-toggle pl-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pagos con tarjeta
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/01%20-%20Autorización/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/01%20-%20Autorización/DatosDelCliente.html">Datos adicionales</a>
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/02%20-%20OTB/index.html">OTB</a>
+                                <a class="dropdown-item pl-2" href="../../01%20-%20Pagos_con_tarjeta/03%20-%20Credit/index.html">Credit</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/01%20-%20Autorizacion/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/02%20-%20OTB/index.html">OTB</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/03%20-%20Pay%20By%20Link/index.html">Pay By Link</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/04%20-%20Auth%20con%20iframe/index.html">Iframe</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/01%20-%20Pagos_con_tarjeta/05%20-%20Lightbox/index.html">Lightbox</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link dropdown-toggle pl-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Almacenamiento de tarjeta
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../02%20-%20Almacenamiento%20de%20tarjeta/01%20-%20Crear%20un%20cliente/index.html">Crear un cliente</a>
+                                <a class="dropdown-item pl-2" href="../../02%20-%20Almacenamiento%20de%20tarjeta/02%20-%20Almacenar%20una%20tarjeta/index.html">Almacenar una tarjeta</a>
+                                <a class="dropdown-item pl-2" href="../../02%20-%20Almacenamiento%20de%20tarjeta/03%20-%20Editar%20tarjeta/index.html">Editar tarjetas</a>
+                                <a class="dropdown-item pl-2" href="../../02%20-%20Almacenamiento%20de%20tarjeta/04%20-%20Eliminar%20tarjeta/index.html">Eliminar tarjetas</a>
+                                <a class="dropdown-item pl-2" href="../../02%20-%20Almacenamiento%20de%20tarjeta/05%20-%20Auth/index.html">Autorización</a>
+                                <a class="dropdown-item pl-2" href="../../02%20-%20Almacenamiento%20de%20tarjeta/06%20-%20Credit/index.html">Credit</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2" href="../../../HPP/02%20-%20Almacenamiento%20de%20tarjeta/01%20-%20Crear%20un%20cliente/index.html">Crear un cliente</a>
+                                <a class="dropdown-item pl-2" href="../../../HPP/02%20-%20Almacenamiento%20de%20tarjeta/02%20-%20Mostrar%20Tarjetas/index.html">Mostrar tarjetas</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gestión de transacciones
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item pl-2" href="../01%20-%20Capturar/index.html">Settle (Capturar)</a>
+                            <a class="dropdown-item pl-2" href="../02%20-%20Rebate/index.html">Rebate (Devolución)</a>
+                            <a class="dropdown-item pl-2 active" href="#">Void (Anular transacción)</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filtro de fraude
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            
+                            <div class="dropdown-header text-center p-0">API</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/01%20-%20Fraud%20Filter/index.html">Filtro de fraude</a>
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/02%20-%20Address%20Verification">Verificación de dirección</a>
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/03%20-%20Hold">Retener transacción</a>
+                                <a class="dropdown-item pl-2"  href="../../05%20-%20Fraud%20Management/04%20-%20Lanzamiento">Lanzar transacción</a>
+                            <hr class="m-0 p-0">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"  href="../../../HPP/03%20-%20Fraud%20Management/01%20-%20Fraud%20Filter/index.html">Filtro de fraude</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ml-1 dropdown">
+                        <a class="nav-link pl-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            DCC
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header text-center p-0">HPP</div>
+                            <hr class="m-0 p-0">
+                                <a class="dropdown-item pl-2"href="../../../HPP/04%20-%20DCC/index.html">Operación con DCC</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- /NAVBAR -->
+
+        <div class="col-lg-12"> 
+            <div id="contenidoComun" class="container-fluid">
+                <div class="row">
+
+                    <!-- Menú lateral -->
+                    <div class="col-lg-2 sticky-top d-none d-sm-none d-lg-block d-xl-block MenuLateral">
+
+                        <!-- Barra de progreso -->
+                        <div class="progress-bar" id="progreso"></div>
+                        <!-- /Barra de progreso -->
+
+                        <nav class="navbar sticky-top navbar-light" style="padding: 0px;">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#void">1. Void (Anular transacción)</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link ml-3 my-1" href="#codigoEjemplo">1.1 Código de ejemplo</a>
+                                </nav>
+                                <a class="nav-link" href="#descripciones">2. Descripciones</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link ml-3 my-1" id="#ConfigTerminal" href="#ConfigTerminal">2.1 Configuración del terminal</a>
+                                    <a class="nav-link ml-3 my-1" id="#datosOrg" href="#datosOrg">2.2 Datos de la transacción original</a>
+                                    <a class="nav-link ml-3 my-1" id="#envioOP" href="#envioOP">2.3 Envío de la petición de Void</a>
+                                </nav>
+                                <a class="nav-link" href="#FormEjemplo1">3. Formulario de ejemplo</a>
+                                <nav>
+                                    <a class="nav-link ml-3 my-1" href="#Formulario">3.1 Formulario</a>
+                                    <a class="nav-link ml-3 my-1" href="#respuestaForm">3.2 Respuesta de operación</a>
+                                </nav>
+                            </nav>
+                        </nav>
+                    </div>
+
+                    <div class="col-lg-10" >
+                        <!-- Punto 1 -->
+                        <div class="contenedor">
+                            <div class="pl-3 pt-3 pr-3 pb-4 mb-3 text-justify">
+                                <h3 id="void" class="titulo">
+                                    1. Void (Anular transacción)
+                                </h3>
+                                <hr>
+
+                                <p>
+                                   Antes de la liquidación, es posible anular una solicitud de autorización, reembolso o preautorización . Si la transacción ya se ha colocado en el siguiente archivo de liquidación, esta operativa la eliminará. Si usa preautorización, esto cancelará la transacción inicial. Si la transacción se ha liquidado o agrupado, no se puede anular. Esta solicitud requiere el ID del pedido y la Referencia de pagos (pasref) de la transacción original.
+                                </p>
+                                
+                                <p class="alert alert-primary" role="alert">
+                                    <small class="form-text text">
+                                        --> Puede contactar con nosotros llamando al teléfono <a target="_blank" href="tel:914353028">914 353 028 opción 2</a> o enviándonos un email a <a target="_blank" href="mailto:soporte@addonpayments.com">soporte@addonpayments.com.</a>
+                                    </small>
+                                </p>
+
+                                <h5 style="" class="pt-3" id="codigoEjemplo">
+                                    1.1 Código de ejemplo
+                                </h5>
+                                
+                                <hr>
+
+                                <!-- Código ejemplo-->
+                                <div class="p-4 panelCode">
+                                    <code>
+                                            <span class="etiqueta">using </span><span class="variables">Microsoft.AspNetCore.Mvc;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">GlobalPayments.Api;</span>
+                                        <br>
+                                            <span class="etiqueta">using </span><span class="variables">GlobalPayments.Api.Entities;</span>
+                                        <br>
+                                        <br>
+                                            <span class="etiqueta">namespace </span><span class="variables">AddonPayments.Controllers {</span>
+                                        <br>
+                                            <span class="pl-4 variables">[</span><span class="imports">ApiController</span><span class="variables">]</span>
+                                        <br>
+                                            <span class="pl-4 variables">[</span><span class="imports">Route</span><span class="variables">(</span><span class="orange">"[Controller]"</span><span class="variables">)]</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 etiqueta">public class </span><span class="imports">VoidApiController</span><span class="variables">: </span><span class="imports">ControllerBase </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-5 variables">[</span><span class="imports">HttpPost</span><span class="variables">]</span>
+                                        <br>
+                                            <span class="pl-5 etiqueta">public </span><span class="service">IActionResult </span><span class="variables">VoidApi() {</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Configuramos los datos de nuestro comercio. Los datos son proporcionados por el equipo de Addon Payments,</span>
+                                       <br>
+                                           <span class="pl-6 comments">// en caso de duda debe llamar al 914 353 028 e indicar su número de comercio o Merchant ID</span>
+                                        <br>
+                                            <span class="pl-6 imports">ServicesContainer</span><span class="variables">.ConfigureService(</span><span class="new">new </span><span class="imports">GatewayConfig </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-7 variables">MerchantId = </span><span class="orange">"addonnettest"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">AccountId = </span><span class="orange">"api"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">SharedSecret = </span><span class="orange">"secret"</span><span class="variables">,</span>
+                                        <br>
+                                            <span class="pl-7 variables">ServiceUrl = </span><span class="orange">"https://remote.sandbox.addonpayments.com/remote"</span>
+                                        <br>
+                                            <span class="pl-6 variables">});</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Identificador de la transacción que queremos capturar</span>
+                                        <br>
+                                            <span class="pl-6 new">var </span><span class="variables">orderId = </span><span class="orange">"16-41_12_12_2019-SDK2-0-0-8QSt2v1V-EylBuvIYqOFkw"</span><span class="variables">;</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Referencia de la transacción original</span>
+                                        <br>
+                                            <span class="pl-6 new">var </span><span class="variables">paymentsReference = </span><span class="orange">"15761652848277110"</span><span class="variables">;</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 new">var </span><span class="variables">transaction = </span><span class="imports">Transaction</span><span class="variables">.FromId(paymentsReference, orderId);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 comments">// Lanzamos la petición al servidor de Addon Payments</span>
+                                        <br>
+                                            <span class="pl-6 new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-7 imports">Transaction </span><span class="variables">response = transaction.Void()</span>
+                                        <br>
+                                            <span class="pl-9 variables">.Execute();</span>
+                                        <br>
+                                        <br>
+                                            <span class="comments pl-7">// Obtenemos la respuesta y la mostramos</span>
+                                        <br>
+                                            <span class="pl-7 new">var </span><span class="variables">result = response.ResponseCode; </span><span class="comments">// 00 == Success</span>
+                                        <br>
+                                            <span class="pl-7 new">var </span><span class="variables">message = response.ResponseMessage; </span><span class="comments">// [ test system ] AUTHORISED</span>
+                                        <br>
+                                            <span class="pl-7 new">var </span><span class="variables">orderId = response.OrderId; </span><span class="comments">// Order ID de la transacción</span>
+                                        <br>
+                                            <span class="pl-7 new">var </span><span class="variables">authCode = response.AuthorizationCode; </span><span class="comments">// Código de autorización</span>
+                                        <br>
+                                            <span class="pl-7 new">var </span><span class="variables">schemeReferenceData = response.SchemeId; </span><span class="comments">// MMC0F00YE4000000715</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-7 comments">// Devolvemos la respuesta asociando los parámetros recibidos por el servidor a una variable</span>
+                                        <br>
+                                            <span class="pl-7 comments">// para más información puede ver el controlador "AuthorizationApiController.cs"</span>
+                                        <br>
+                                            <span class="pl-7 new">return </span><span class="variables">Ok(variable);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-7 comments">// Aconsejamos guardar los datos de la operacion en su base de datos en caso de querer gestionar de forma interna sus transacciones</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-6 variables">}</span><span class="new"> catch </span><span class="variables">(</span><span class="imports">ApiException </span><span class="variables">exce</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="comments pl-7">// Añada aquí su tratamiento de errores</span>
+                                        <br>
+                                            <span class="pl-7 new">return </span><span class="variables">Ok(exce);</span>
+                                        <br>
+                                            <span class="pl-6 variables">}</span>
+                                        <br>
+                                            <span class="pl-5 variables">}</span>
+                                        <br>
+                                            <span class="pl-4 variables">}</span>
+                                        <br>
+                                            <span class="variables">}</span>
+                                    </code>
+                                </div>
+                                <!-- Fin código ejemplo-->
+                            </div>
+                        </div>
+                        <!-- Fin punto 1 -->
+
+                        <!-- Punto 2 -->
+                        <div class="contenedor">
+                            <div class="pl-3 pt-3 pr-3 pb-1 mb-3 text-justify">
+                                <h3 class="pt-1" id="descripciones">
+                                    2. Descripciones
+                                </h3>
+
+                                <hr>
+
+                                <h5 id="ConfigTerminal" class="mt-3">
+                                    2.1 Configuración del terminal
+                                </h5>
+
+                                <p>
+                                   Debemos introducir los datos de configuración que se facilitan en la llamada de cualificación del soporte técnico de Addon Payments.
+                                </p>
+
+                                <ul>
+                                   <li>
+                                       Merchant_ID = Identificador del comercio.
+                                   </li>
+                                   <li>
+                                       SubAccount = Subcuenta faciltiada en la llamada de cualificación (en caso de que se envíe la operación sin subcuenta, se usará la establecida por defecto en la creación de su terminal).
+                                   </li>
+                                   <li>
+                                       Shared Secret = Contraseña de seguridad del terminal.
+                                   </li>
+                                </ul>
+                                <small class="form-text text-muted alert alert-primary">
+                                    --&gt; En caso de que le falte algún dato de los mencionados arriba, debe contactar con su soporte técnico de Addon Payments llamando al teléfono 914 353 028 (opción 2) o enviando un email al correo electrónico <a target="_blank" href="mailto:soporteaddonpayments.com">soporteaddonpayments.com</a>.
+                                </small>
+                                <div class="p-4 mb-4 panelCode">
+                                    <code>
+                                            <span class="imports">ServicesContainer</span><span class="variables">.ConfigureService(</span><span class="new">new </span><span class="imports">GatewayConfig </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-4 variables">MerchantId = </span><span class="orange">"addonnettest"</span><span class="variables">, </span><span class="comments">// Identificador del comercio</span>
+                                        <br>
+                                            <span class="pl-4 variables">AccountId = </span><span class="orange">"api"</span><span class="variables">, </span><span class="comments">// Subcuenta asociada a su identificador</span>
+                                        <br>
+                                            <span class="pl-4 variables">SharedSecret = </span><span class="orange">"secret"</span><span class="variables">, </span><span class="comments">// Contraseña del terminal</span>
+                                        <br>
+                                            <span class="pl-4 variables">ServiceUrl = </span><span class="orange">"https://remote.sandbox.addonpayments.com/remote" </span><span class="comments">// Se debe emplear una de las siguientes URL's:</span>
+                                        <br>
+                                            <span class="pl-5 comments">// Sandbox URL para el entorno de pruebas - <b>https://remote.sandbox.addonpayments.com/remote</b>.</span>
+                                        <br>
+                                            <span class="pl-5 comments">// Live URL para el entorno de producción - <b>https://remote.addonpayments.com/remote</b>.</span>
+                                        <br>
+                                            <span class="variables">});</span>
+                                    </code>
+                                </div>
+
+                                <hr>
+
+                                <h5 id="datosOrg" class="mt-3">
+                                    2.2 Datos de la transacción original
+                                </h5>
+
+                                    <p>
+                                        Para realizar una anulación, debemos indicar los siguientes datos:
+
+                                        <br>
+                                        <p class="alert alert-primary">
+                                            <small class="text">
+                                                --> Estos datos se facilitan en la respuesta de cada operación.
+                                            </small>
+                                        </p>
+                                        
+                                    </p>
+
+                                    <ul>
+                                        <li>
+                                           <span class="variableBgW">OrderID</span> =  Identificador de la transacción original.
+                                        </li>
+
+                                        <br>
+
+                                        <li>
+                                            <span class="variableBgW">paymentsReference</span> = Referencia de la operación preautorizada. Se obtiene en la respuesta de la preautorización.
+                                        </li>
+
+                                        <br>
+
+                                        <li>
+                                            Creamos el objeto "void" con las referencias que hemos asociado anteriormente:
+                                        </li>
+
+                                        <ul>
+                                            <li>
+                                                <span class="variableBgW">transaction</span> 
+                                                <span class="require">=</span>
+                                                <span class="arrow">Transaction.FromId(</span><span class="variableBgW">paymentsReference</span><span class="arrow">,</span>
+                                                <span class="variableBgW">OrderID</span><span class="arrow">);</span>
+                                            </li>
+                                        </ul>
+                                    </ul>
+
+                                    <div class="p-4 mb-4 panelCode">
+                                        <code>
+                                                <span class="comments">// Identificador de la transacción que queremos capturar</span>
+                                            <br>
+                                                <span class="new">var </span><span class="variables">orderId = </span><span class="orange">"16-41_12_12_2019-SDK2-0-0-8QSt2v1V-EylBuvIYqOFkw"</span><span class="variables">;</span>
+                                            <br>
+                                            <br>
+                                                <span class="comments">// Referencia de la transacción original</span>
+                                            <br>
+                                                <span class="new">var </span><span class="variables">paymentsReference = </span><span class="orange">"15761652848277110"</span><span class="variables">;</span>
+                                            <br>
+                                            <br>
+                                                <span class="new">var </span><span class="variables">transaction = </span><span class="imports">Transaction</span><span class="variables">.FromId(paymentsReference, orderId);</span>
+                                        </code>
+                                    </div>
+
+                                <hr>
+
+                                <h5 id="envioOP" class="mt-3">
+                                    2.3 Envío de la petición Void
+                                </h5>
+
+                                <p>
+                                    Para enviar la solicitud a los servidores de Addon Payments, debemos emplear el modelo de excepciones "try - catch". 
+                                    <small class="form-text text-muted alert alert-primary">
+                                        --&gt;Para obtener más información sobre la excepción de "try - catch" puede ver la <a target="_blank" href="https://docs.microsoft.com/es-es/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions">documentación oficial de .NET</a>
+                                    </small>
+                                </p>
+
+                                <ul>
+                                    <li>
+                                        Llamamos a la función "Void()" para indicar la operación que queremos anular:
+                                        <ul>
+                                            <li>
+                                                <span class="variableBgW">response</span>
+                                                <span class="arrow">=</span>
+                                                <span class="variableBgW">transaction</span><span class="arrow">.Void()</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <br>
+
+                                    <li>
+                                        Ejecutamos la operación:
+                                        <ul>
+                                            <li>
+                                                <span class="arrow">.Execute();</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <br>
+
+                                </ul>
+
+                                <div class="p-4 mb-4 panelCode">
+                                    <code>
+                                        <span class="new">try </span><span class="variables">{</span>
+                                        <br>
+                                            <span class="pl-4 imports">Transaction </span><span class="variables">response = transaction.Void()</span>
+                                        <br>
+                                            <span class="pl-7 variables">.Execute();</span>
+                                        <br>
+                                        <br>
+                                            <span class="comments pl-4">// Obtenemos la respuesta y la mostramos</span>
+                                        <br>
+                                            <span class="pl-4 new">var </span><span class="variables">result = response.ResponseCode; </span><span class="comments">// 00 == Success</span>
+                                        <br>
+                                            <span class="pl-4 new">var </span><span class="variables">message = response.ResponseMessage; </span><span class="comments">// [ test system ] AUTHORISED</span>
+                                        <br>
+                                            <span class="pl-4 new">var </span><span class="variables">orderId = response.OrderId; </span><span class="comments">// Order ID de la transacción</span>
+                                        <br>
+                                            <span class="pl-4 new">var </span><span class="variables">authCode = response.AuthorizationCode; </span><span class="comments">// Código de autorización</span>
+                                        <br>
+                                            <span class="pl-4 new">var </span><span class="variables">schemeReferenceData = response.SchemeId; </span><span class="comments">// MMC0F00YE4000000715</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 comments">// Devolvemos la respuesta asociando los parámetros recibidos por el servidor a una variable</span>
+                                        <br>
+                                            <span class="pl-4 comments">// para más información puede ver el controlador "AuthorizationApiController.cs"</span>
+                                        <br>
+                                            <span class="pl-4 new">return </span><span class="variables">Ok(variable);</span>
+                                        <br>
+                                        <br>
+                                            <span class="pl-4 comments">// Aconsejamos guardar los datos de la operacion en su base de datos en caso de querer gestionar de forma interna sus transacciones</span>
+                                        <br>
+                                        <br>
+                                            <span class="variables">}</span><span class="new"> catch </span><span class="variables">(</span><span class="imports">ApiException </span><span class="variables">exce</span><span class="variables">) {</span>
+                                        <br>
+                                            <span class="comments pl-4">// Añada aquí su tratamiento de errores</span>
+                                        <br>
+                                            <span class="pl-4 new">return </span><span class="variables">Ok(exce);</span>
+                                        <br>
+                                            <span class="variables">}</span>
+                                    </code>
+                                </div>
+
+                                <p class="pb-4">
+                                    Para la respuesta realizamos un <span class="arrow">return Ok()</span> de "<span class="arrow">exce</span>".
+                                    <br>
+                                    <br>
+                                    Con esta función obtenemos el motivo de la denegación del servidor. Para ver todos los errores de denegación actualizados, puede comprobar nuestra <a target="_blank" href="https://desarrolladores.addonpayments.com/#!/technical-resources/messages">documentación de Addon Payments.</a>
+                                </p>
+
+                            </div>
+                        </div>
+                        <!-- Fin punto 2 -->
+
+                        <!-- Punto 3 -->
+                        <div class="contenedor">
+                            <div class="pl-3 pt-3 pr-3 pb-4 mb-3 text-justify">
+                                <h3 class="pt-1" id="FormEjemplo1">
+                                    3. Formulario de ejemplo
+                                </h3>
+                                
+                                <hr>
+
+                                <p>
+                                    Para poder procesar la transacción con el formulario de ejemplo en su identificador, debe modificar el archivo "VoidApiController.cs" que se encuentra en la ruta "Controllers\VoidApiController.cs".
+                                </p>
+                                <p>
+                                    Debe introducir sus datos de configuración tal y como se muestra en el punto 2.1 de esta guía.
+                                </p>
+
+                                <hr>
+                                <h5 id="Formulario" class="mt-3">3.1 Formulario</h5>
+
+                                <p>
+                                    El siguiente formulario le permite realizar una anulación sobre una operación preautorizada en entorno de pruebas. Puede acceder al panel de administración ingresando en la siguiente URL e introduciendo sus datos de inicio de sesión:
+                                    <ul>
+                                        <li><a target="_blank" href="https://admin.sandbox.addonpayments.com">https://admin.sandbox.addonpayments.com.</a></li>
+                                    </ul>
+                                </p>
+
+                                <form id="formulario_envio" method="POST" autocomplete="off" class="col-lg-12" action="/VoidApi">
+                                    <div class="row justify-content-around">
+                                        <div class="col-lg-4 pl-lg-4">
+                                            <div class="row">
+                                                <div class="col-lg-12 mt-2 mb-2 formulario">
+                                                    <!-- Datos de tarjeta -->
+
+                                                    <h4 class="pt-2">Void</h4>
+
+                                                    <div class="form-group">
+                                                        <label for="orderid">Order ID</label>
+                                                        <input type="text" class="form-control" id="orderid" name="orderid" placeholder="Order ID" required/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="pasref">Pasref</label>
+                                                        <input type="text" class="form-control" id="pasref" name="pasref" placeholder="Pasref" required/>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                            <button type="submit" class="btn btn-block btn-primary">Anular operación</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <hr>
+
+                                <h5 id="respuestaForm">
+                                    3.2 Respuesta de la operación
+                                </h5>
+
+                                <small class="form-text text-muted alert alert-primary">
+                                    --&gt; La respuesta se obtiene mediante la excepción "try - catch". Para ver más información puede ver la <a target="_blank" href="https://docs.microsoft.com/es-es/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions">documentación oficial de .NET</a>
+                                </small>
+
+                                <div id="server-results" class="pb-3 mb-2">
+                                    <p>
+                                        Su respuesta aparecerá aquí.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin punto 3 -->
+                    
+                    </div>
+                    <!-- /Contenido común -->
+
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="../../../../assets/js/barraprogreso.js"></script>
+
+        <script>
+            // Petición AJAX para enviar el formulario sin recargar la web
+            $("#formulario_envio").submit(function(event){
+                event.preventDefault();
+                var url = $(this).attr("action"); // Valor del campo "action" del formulario
+                var method = $(this).attr("method"); // Valor del campo "method" del formulario
+                var datos = {
+                    Op: {
+                        orderID: $("#orderid").val(),
+                        pasref: $("#pasref").val()
+                    }
+                }
+
+                $.ajax({
+                    url: url,
+                    type: method,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(datos)
+                }).done(function (respuesta) {
+                    console.log(respuesta);
+                    if (respuesta.result == "00") {
+                        var json = "Resultado === " + respuesta.result
+                            + "<br>" +
+                            "Mensaje === " + respuesta.message
+                            + "<br>" +
+                            "Order ID === " + respuesta.orderId
+                            + "<br>" +
+                            "Código de autenticación === " + respuesta.authCode
+                            + "<br>" +
+                            "SchemeReferenceData === " + respuesta.schemeReferenceData;
+
+                        $("#server-results").html(json);
+
+                    } else {
+                        var json = respuesta.resultado;
+                        $("#server-results").html(json);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
