@@ -16,3 +16,12 @@ C:\SDK\net\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.As
 C:\SDK\net\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.AssemblyInfo.cs
 C:\SDK\net\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.dll
 C:\SDK\net\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.pdb
+C:\Users\victor.cantera\Documents\GitHub\net-sdk\src\GlobalPayments.Api\bin\Debug\netstandard2.0\GlobalPayments.Api.deps.json
+C:\Users\victor.cantera\Documents\GitHub\net-sdk\src\GlobalPayments.Api\bin\Debug\netstandard2.0\GlobalPayments.Api.dll
+C:\Users\victor.cantera\Documents\GitHub\net-sdk\src\GlobalPayments.Api\bin\Debug\netstandard2.0\GlobalPayments.Api.pdb
+C:\Users\victor.cantera\Documents\GitHub\net-sdk\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.csproj.CoreCompileInputs.cache
+C:\Users\victor.cantera\Documents\GitHub\net-sdk\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.AssemblyInfoInputs.cache
+C:\Users\victor.cantera\Documents\GitHub\net-sdk\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.AssemblyInfo.cs
+C:\Users\victor.cantera\Documents\GitHub\net-sdk\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.dll
+C:\Users\victor.cantera\Documents\GitHub\net-sdk\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.pdb
+C:\Users\victor.cantera\Documents\GitHub\net-sdk\src\GlobalPayments.Api\obj\Debug\netstandard2.0\GlobalPayments.Api.csprojAssemblyReference.cache

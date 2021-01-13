@@ -11,13 +11,16 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("AddonPayments")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Comercia GlobalPayments")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Addon Payments")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Este SDK ha sido adaptado por Comercia Global Payments para facilitar la integrac" +
+    "ión de su terminal Addon Payments en su servidor .NET.")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("2.1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.1.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AddonPayments")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AddonPayments")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("2.1.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 

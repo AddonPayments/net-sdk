@@ -378,6 +378,49 @@ namespace GlobalPayments.Api.Gateways {
                 request.Set("HPP_CUSTOMER_EMAIL", builder.HostedPaymentData.CustomerEmail);
                 request.Set("HPP_CUSTOMER_PHONENUMBER_MOBILE", builder.HostedPaymentData.CustomerPhoneMobile);
                 request.Set("HPP_CHALLENGE_REQUEST_INDICATOR", builder.HostedPaymentData.ChallengeRequest);
+
+                // Optional data of 3DSv2
+                request.Set("HPP_CUSTOMER_PHONENUMBER_HOME", builder.HostedPaymentData.CustomerHomeNumber);
+                request.Set("HPP_CUSTOMER_PHONENUMBER_WORK", builder.HostedPaymentData.CustomerWorkNumber);
+                request.Set("HPP_CARDHOLDER_ACCOUNT_AGE_DATE", builder.HostedPaymentData.AccountAgeDate);
+                request.Set("HPP_CARDHOLDER_ACCOUNT_AGE_INDICATOR", builder.HostedPaymentData.AccountAgeIndicator);
+                request.Set("HPP_CARDHOLDER_ACCOUNT_CHANGE_DATE", builder.HostedPaymentData.AccountChangeDate);
+                request.Set("HPP_CARDHOLDER_ACCOUNT_CHANGE_INDICATOR", builder.HostedPaymentData.AccountChangeIndicator);
+                request.Set("HPP_CARDHOLDER_ACCOUNT_PASSWORD_CHANGE_DATE", builder.HostedPaymentData.AccountPassChangeDate);
+                request.Set("HPP_CARDHOLDER_ACCOUNT_PASSWORD_CHANGE_INDICATOR", builder.HostedPaymentData.AccountPassChangeIndicator);
+                request.Set("HPP_CARDHOLDER_ACCOUNT_PURCHASE_COUNT", builder.HostedPaymentData.AccountPurchaseCount);
+                request.Set("HPP_TRANSACTION_TYPE", builder.HostedPaymentData.TransactionType);
+                request.Set("HPP_CARDHOLDER_ACCOUNT_IDENTIFIER", builder.HostedPaymentData.CardholderAccountIdentifier);
+                request.Set("HPP_SUSPICIOUS_ACTIVITY", builder.HostedPaymentData.SuspiciousActivity);
+                request.Set("HPP_PROVISION_ATTEMPTS_DAY", builder.HostedPaymentData.ProvisionAttemptsDay);
+                request.Set("HPP_PAYMENT_ACCOUNT_AGE", builder.HostedPaymentData.PaymentAccountAge);
+                request.Set("HPP_PAYMENT_ACCOUNT_AGE_INDICATOR", builder.HostedPaymentData.PaymentAccountAgeIndicator);
+                request.Set("HPP_DELIVERY_EMAIL", builder.HostedPaymentData.DeliveryEmail);
+                request.Set("HPP_DELIVERY_TIMEFRAME", builder.HostedPaymentData.DeliveryTimeframe);
+                request.Set("HPP_SHIP_INDICATOR", builder.HostedPaymentData.ShipIndicator);
+                request.Set("HPP_SHIPPING_ADDRESS_USAGE", builder.HostedPaymentData.ShippingAddressUsage);
+                request.Set("HPP_SHIPPING_ADDRESS_USAGE_INDICATOR", builder.HostedPaymentData.ShippingAddressUsageIndicator);
+                request.Set("HPP_SHIPPING_NAME_INDICATOR", builder.HostedPaymentData.ShippingNameIndicator);
+                request.Set("HPP_PREORDER_DATE", builder.HostedPaymentData.PreorderDate);
+                request.Set("HPP_PREORDER_PURCHASE_INDICATOR", builder.HostedPaymentData.PreorderPurchaseIndicator);
+                request.Set("HPP_REORDER_ITEM_INDICATOR", builder.HostedPaymentData.ReorderItemIndicator);
+                request.Set("HPP_TRANSACTION_ACTIVITY_DAY", builder.HostedPaymentData.TransactionActivityDay);
+                request.Set("HPP_TRANSACTION_ACTIVITY_YEAR", builder.HostedPaymentData.TransactionActivityYear);
+                request.Set("HPP_GIFT_CARD_AMOUNT", builder.HostedPaymentData.GiftCardAmount);
+                request.Set("HPP_GIFT_CARD_COUNT", builder.HostedPaymentData.GiftCardCount);
+                request.Set("HPP_GIFT_CARD_CURRENCY", builder.HostedPaymentData.GiftCardCurrency);
+                request.Set("HPP_RECURRING_MAX_INSTALLMENTS", builder.HostedPaymentData.RecurringMaxInstallments);
+                request.Set("HPP_RECURRING_EXPIRY", builder.HostedPaymentData.RecurringExpiry);
+                request.Set("HPP_RECURRING_FREQUENCY", builder.HostedPaymentData.RecurringFrequency);
+                request.Set("HPP_PRIOR_TRANSACTION_AUTHENTICATION_METHOD", builder.HostedPaymentData.PriorTransAuthMethod);
+                request.Set("HPP_PRIOR_TRANSACTION_AUTHENTICATION_IDENTIFIER", builder.HostedPaymentData.PriorTransAuthIdentifier);
+                request.Set("HPP_PRIOR_TRANSACTION_AUTHENTICATION_TIMESTAMP", builder.HostedPaymentData.PriorTransAuthTimestamp);
+                request.Set("HPP_PRIOR_TRANSACTION_AUTHENTICATION_DATA", builder.HostedPaymentData.PriorTransAuthData);
+                request.Set("HPP_CARDHOLDER_LOGIN_AUTHENTICATION_TYPE", builder.HostedPaymentData.CardLoginAuthType);
+                request.Set("HPP_CARDHOLDER_LOGIN_AUTHENTICATION_TIMESTAMP", builder.HostedPaymentData.CardLoginAuthTimestamp);
+                request.Set("HPP_CARDHOLDER_LOGIN_AUTHENTICATION_DATA", builder.HostedPaymentData.CardLoginAuthData);
+                request.Set("HPP_WHITELIST_STATUS", builder.HostedPaymentData.WhiteListStatus);
+
                 if (builder.HostedPaymentData.AddressesMatch != null) {
                     request.Set("HPP_ADDRESS_MATCH_INDICATOR", builder.HostedPaymentData.AddressesMatch.Value ? "TRUE" : "FALSE");
                 }

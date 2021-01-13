@@ -85,6 +85,51 @@ namespace AddonPayments.Controllers {
         public string hppPayByLink { set; get; }
     }
 
+    public class RespuestaVersion3DS2
+    {
+        public string acsEndVersion { set; get; }
+        public string acsStartVersion { set; get; }
+        public string acsTransactionId { set; get; }
+        public int algorithm { set; get; }
+        public string authenticationSource { set; get; }
+        public string authenticationType { set; get; }
+        public string authenticationValue { set; get; }
+        public string cardHolderResponseInfo { set; get; }
+        public string cavv { set; get; }
+        public bool challengeMandated { set; get; }
+        public string criticalityIndicator { set; get; }
+        public string directoryServerEndVersion { set; get; }
+        public string directoryServerStartVersion { set; get; }
+        public string directoryServerTransactionId { set; get; }
+        public int? eci { set; get; }
+        public string enrolled { set; get; }
+        public string issuerAcsUrl { set; get; }
+        public string messageCategory { set; get; }
+        public string messageExtensionId { set; get; }
+        public string messageExtensionName { set; get; }
+        public string messageVersion { set; get; }
+        public string payerAuthenticationRequest { set; get; }
+        public string paymentDataSource { set; get; }
+        public string paymentDataType { set; get; }
+        public string sdkInterface { set; get; }
+        public System.Collections.Generic.IEnumerable<string> sdkUiType { set; get; }
+        public string serverTransactionId { set; get; }
+        public string status { set; get; }
+        public string statusReason { set; get; }
+        public string xid { set; get; }
+    }
+
+    public class NavegadorCliente
+    {
+        public ColorDepth colorDepth { set; get; }
+        public bool javaEnabled { set; get; }
+        public string browserLanguage { set; get; }
+        public int screenHeight { set; get; }
+        public int screenWidth { set; get; }
+        public string userAgent { set; get; }
+        public string browserTimezoneZoneOffset { set; get; }
+    }
+
     public class Op
     {
         public string importe { set; get; }
@@ -167,5 +212,21 @@ namespace AddonPayments.Controllers {
         public Billing Billing { set; get; }
         public Shipping Shipping { set; get; }
 
+    }
+
+    public class MethodUrlResponse
+    {
+        public string methodUrlResponseString { set; get; }
+        public string ThreeDSServerTransID { set; get; }
+    }
+
+    public class ChallengeUrlResponse
+    {
+        public string ThreeDSServerTransID { set; get; }
+        public string AcsTransID { set; get; }
+        public string ChallengeCompletionInd { set; get; }
+        public string MessageType { set; get; }
+        public string MessageVersion { set; get; }
+        public string TransStatus { set; get; }
     }
 }

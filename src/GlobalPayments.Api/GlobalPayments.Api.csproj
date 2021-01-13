@@ -7,12 +7,12 @@
     <RepositoryUrl>https://github.com/AddonPayments/net-sdk</RepositoryUrl>
     <Copyright>Addon Payments</Copyright>
     <Company>Comercia GlobalPayments</Company>
-    <PackageId>AddonPayments</PackageId>
+    <PackageId>AddonPayments.Api</PackageId>
     <Authors>AddonPayments</Authors>
     <Product>AddonPayments</Product>
     <title>SDK de Addon Payments</title>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageIcon>https://raw.githubusercontent.com/AddonPayments/net-sdk/master/test/assets/img/comercia_ico.png</PackageIcon>
+    <Version>2.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,5 +23,5 @@
     <Folder Include="Properties\" />
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
   </ItemGroup>
-
+  
 </Project>

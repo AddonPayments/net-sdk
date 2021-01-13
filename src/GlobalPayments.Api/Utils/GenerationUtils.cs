@@ -110,7 +110,7 @@ namespace GlobalPayments.Api.Utils {
         public static string GenerateOrderId() {
             var uuid = Guid.NewGuid();
             var timeStamp = DateTime.Now.ToString("HH-mm_dd_MM_yyyy");
-            return String.Concat(timeStamp, "-SDK2-0-0-", Convert.ToBase64String(uuid.ToByteArray()).TrimEnd('=').Replace("+", "-").Replace("/", "_"));
+            return String.Concat(timeStamp, "-SDK2-1-0-", Convert.ToBase64String(uuid.ToByteArray()).TrimEnd('=').Replace("+", "-").Replace("/", "_"));
         }
         public static string GenerateRecurringKey() {
             return Guid.NewGuid().ToString().ToLower();

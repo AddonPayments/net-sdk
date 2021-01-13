@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>AddonPayments</id>
+    <version>2.1.0</version>
+    <authors>AddonPayments</authors>
+    <owners>AddonPayments</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://desarrolladores.addonpayments.com/</projectUrl>
+    <iconUrl>https://desarrolladores.addonpayments.com/assets/images/branding/comercia/logo.svg?v=?v=1.14.1</iconUrl>
+    <description>Este SDK ha sido adaptado por Comercia Global Payments para facilitar la integración de su terminal Addon Payments en su servidor .NET.</description>
+    <copyright>Addon Payments</copyright>
+    <repository url="https://github.com/AddonPayments/net-sdk" />
+    <dependencies>
+      <group targetFramework=".NETCoreApp2.2">
+        <dependency id="AddonPayments.Api" version="2.1.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.VisualStudio.Web.CodeGeneration.Design" version="2.2.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/netcoreapp2.2/wwwroot/assets/css/style.css" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/img/3ds2ACS.png" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/img/comercia_ico.png" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/img/her1.png" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/img/her2.png" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/img/log2.svg" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/img/tick.png" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/js/barraprogreso.js" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/js/rxp-hpp.js" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/js/rxp-js.js" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/assets/js/tarjetaformat.js" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/01 - Pagos_con_tarjeta/01 - Autorización/DatosDelCliente.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/01 - Pagos_con_tarjeta/01 - Autorización/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/01 - Pagos_con_tarjeta/02 - OTB/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/01 - Pagos_con_tarjeta/03 - Credit/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/02 - Almacenamiento de tarjeta/01 - Crear un cliente/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/02 - Almacenamiento de tarjeta/02 - Almacenar una tarjeta/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/02 - Almacenamiento de tarjeta/03 - Editar tarjeta/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/02 - Almacenamiento de tarjeta/04 - Eliminar tarjeta/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/02 - Almacenamiento de tarjeta/05 - Auth/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/02 - Almacenamiento de tarjeta/06 - Credit/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/03 - Gestión de transacciones/01 - Capturar/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/03 - Gestión de transacciones/02 - Rebate/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/03 - Gestión de transacciones/03 - Void/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/05 - Fraud Management/01 - Fraud Filter/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/05 - Fraud Management/02 - Address Verification/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/05 - Fraud Management/03 - Hold/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/05 - Fraud Management/04 - Lanzamiento/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/API/06 - 3DS2/01 - Autorización/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/datos.json" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/errores.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/01 - Pagos_con_tarjeta/01 - Autorizacion/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/01 - Pagos_con_tarjeta/02 - OTB/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/01 - Pagos_con_tarjeta/03 - Pay By Link/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/01 - Pagos_con_tarjeta/04 - Auth con iframe/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/01 - Pagos_con_tarjeta/05 - Lightbox/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/02 - Almacenamiento de tarjeta/01 - Crear un cliente/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/02 - Almacenamiento de tarjeta/02 - Mostrar Tarjetas/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/03 - Fraud Management/01 - Fraud Filter/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/04 - DCC/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/05 - 3DS2/01 - Autorización/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/05 - 3DS2/02 - Datos adicionales/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/informe.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/appsettings.Development.json" buildAction="Content" />
+      <files include="any/netcoreapp2.2/appsettings.json" buildAction="Content" />
+      <files include="any/netcoreapp2.2/libman.json" buildAction="Content" />
+      <files include="any/netcoreapp2.2/Properties/launchSettings.json" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\bin\Release\netcoreapp2.2\AddonPayments.runtimeconfig.json" target="lib\netcoreapp2.2\AddonPayments.runtimeconfig.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\bin\Release\netcoreapp2.2\AddonPayments.dll" target="lib\netcoreapp2.2\AddonPayments.dll" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\css\style.css" target="content\wwwroot\assets\css\style.css" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\css\style.css" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\css\style.css" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\3ds2ACS.png" target="content\wwwroot\assets\img\3ds2ACS.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\3ds2ACS.png" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\img\3ds2ACS.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\comercia_ico.png" target="content\wwwroot\assets\img\comercia_ico.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\comercia_ico.png" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\img\comercia_ico.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\her1.png" target="content\wwwroot\assets\img\her1.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\her1.png" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\img\her1.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\her2.png" target="content\wwwroot\assets\img\her2.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\her2.png" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\img\her2.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\log2.svg" target="content\wwwroot\assets\img\log2.svg" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\log2.svg" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\img\log2.svg" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\tick.png" target="content\wwwroot\assets\img\tick.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\img\tick.png" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\img\tick.png" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\js\barraprogreso.js" target="content\wwwroot\assets\js\barraprogreso.js" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\js\barraprogreso.js" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\js\barraprogreso.js" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\js\rxp-hpp.js" target="content\wwwroot\assets\js\rxp-hpp.js" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\js\rxp-hpp.js" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\js\rxp-hpp.js" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\js\rxp-js.js" target="content\wwwroot\assets\js\rxp-js.js" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\js\rxp-js.js" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\js\rxp-js.js" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\js\tarjetaformat.js" target="content\wwwroot\assets\js\tarjetaformat.js" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\assets\js\tarjetaformat.js" target="contentFiles\any\netcoreapp2.2\wwwroot\assets\js\tarjetaformat.js" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\index.html" target="content\wwwroot\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\01 - Pagos_con_tarjeta\01 - Autorización\DatosDelCliente.html" target="content\wwwroot\net\API\01 - Pagos_con_tarjeta\01 - Autorización\DatosDelCliente.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\01 - Pagos_con_tarjeta\01 - Autorización\DatosDelCliente.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\01 - Pagos_con_tarjeta\01 - Autorización\DatosDelCliente.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\01 - Pagos_con_tarjeta\01 - Autorización\index.html" target="content\wwwroot\net\API\01 - Pagos_con_tarjeta\01 - Autorización\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\01 - Pagos_con_tarjeta\01 - Autorización\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\01 - Pagos_con_tarjeta\01 - Autorización\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\01 - Pagos_con_tarjeta\02 - OTB\index.html" target="content\wwwroot\net\API\01 - Pagos_con_tarjeta\02 - OTB\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\01 - Pagos_con_tarjeta\02 - OTB\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\01 - Pagos_con_tarjeta\02 - OTB\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\01 - Pagos_con_tarjeta\03 - Credit\index.html" target="content\wwwroot\net\API\01 - Pagos_con_tarjeta\03 - Credit\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\01 - Pagos_con_tarjeta\03 - Credit\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\01 - Pagos_con_tarjeta\03 - Credit\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\01 - Crear un cliente\index.html" target="content\wwwroot\net\API\02 - Almacenamiento de tarjeta\01 - Crear un cliente\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\01 - Crear un cliente\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\02 - Almacenamiento de tarjeta\01 - Crear un cliente\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\02 - Almacenar una tarjeta\index.html" target="content\wwwroot\net\API\02 - Almacenamiento de tarjeta\02 - Almacenar una tarjeta\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\02 - Almacenar una tarjeta\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\02 - Almacenamiento de tarjeta\02 - Almacenar una tarjeta\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\03 - Editar tarjeta\index.html" target="content\wwwroot\net\API\02 - Almacenamiento de tarjeta\03 - Editar tarjeta\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\03 - Editar tarjeta\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\02 - Almacenamiento de tarjeta\03 - Editar tarjeta\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\04 - Eliminar tarjeta\index.html" target="content\wwwroot\net\API\02 - Almacenamiento de tarjeta\04 - Eliminar tarjeta\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\04 - Eliminar tarjeta\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\02 - Almacenamiento de tarjeta\04 - Eliminar tarjeta\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\05 - Auth\index.html" target="content\wwwroot\net\API\02 - Almacenamiento de tarjeta\05 - Auth\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\05 - Auth\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\02 - Almacenamiento de tarjeta\05 - Auth\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\06 - Credit\index.html" target="content\wwwroot\net\API\02 - Almacenamiento de tarjeta\06 - Credit\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\02 - Almacenamiento de tarjeta\06 - Credit\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\02 - Almacenamiento de tarjeta\06 - Credit\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\03 - Gestión de transacciones\01 - Capturar\index.html" target="content\wwwroot\net\API\03 - Gestión de transacciones\01 - Capturar\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\03 - Gestión de transacciones\01 - Capturar\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\03 - Gestión de transacciones\01 - Capturar\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\03 - Gestión de transacciones\02 - Rebate\index.html" target="content\wwwroot\net\API\03 - Gestión de transacciones\02 - Rebate\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\03 - Gestión de transacciones\02 - Rebate\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\03 - Gestión de transacciones\02 - Rebate\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\03 - Gestión de transacciones\03 - Void\index.html" target="content\wwwroot\net\API\03 - Gestión de transacciones\03 - Void\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\03 - Gestión de transacciones\03 - Void\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\03 - Gestión de transacciones\03 - Void\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\05 - Fraud Management\01 - Fraud Filter\index.html" target="content\wwwroot\net\API\05 - Fraud Management\01 - Fraud Filter\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\05 - Fraud Management\01 - Fraud Filter\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\05 - Fraud Management\01 - Fraud Filter\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\05 - Fraud Management\02 - Address Verification\index.html" target="content\wwwroot\net\API\05 - Fraud Management\02 - Address Verification\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\05 - Fraud Management\02 - Address Verification\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\05 - Fraud Management\02 - Address Verification\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\05 - Fraud Management\03 - Hold\index.html" target="content\wwwroot\net\API\05 - Fraud Management\03 - Hold\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\05 - Fraud Management\03 - Hold\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\05 - Fraud Management\03 - Hold\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\05 - Fraud Management\04 - Lanzamiento\index.html" target="content\wwwroot\net\API\05 - Fraud Management\04 - Lanzamiento\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\05 - Fraud Management\04 - Lanzamiento\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\05 - Fraud Management\04 - Lanzamiento\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\06 - 3DS2\01 - Autorización\index.html" target="content\wwwroot\net\API\06 - 3DS2\01 - Autorización\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\API\06 - 3DS2\01 - Autorización\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\API\06 - 3DS2\01 - Autorización\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\datos.json" target="content\wwwroot\net\datos.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\datos.json" target="contentFiles\any\netcoreapp2.2\wwwroot\net\datos.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\errores.html" target="content\wwwroot\net\errores.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\errores.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\errores.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\01 - Autorizacion\index.html" target="content\wwwroot\net\HPP\01 - Pagos_con_tarjeta\01 - Autorizacion\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\01 - Autorizacion\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\01 - Pagos_con_tarjeta\01 - Autorizacion\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\02 - OTB\index.html" target="content\wwwroot\net\HPP\01 - Pagos_con_tarjeta\02 - OTB\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\02 - OTB\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\01 - Pagos_con_tarjeta\02 - OTB\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\03 - Pay By Link\index.html" target="content\wwwroot\net\HPP\01 - Pagos_con_tarjeta\03 - Pay By Link\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\03 - Pay By Link\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\01 - Pagos_con_tarjeta\03 - Pay By Link\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\04 - Auth con iframe\index.html" target="content\wwwroot\net\HPP\01 - Pagos_con_tarjeta\04 - Auth con iframe\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\04 - Auth con iframe\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\01 - Pagos_con_tarjeta\04 - Auth con iframe\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\05 - Lightbox\index.html" target="content\wwwroot\net\HPP\01 - Pagos_con_tarjeta\05 - Lightbox\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\01 - Pagos_con_tarjeta\05 - Lightbox\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\01 - Pagos_con_tarjeta\05 - Lightbox\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\02 - Almacenamiento de tarjeta\01 - Crear un cliente\index.html" target="content\wwwroot\net\HPP\02 - Almacenamiento de tarjeta\01 - Crear un cliente\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\02 - Almacenamiento de tarjeta\01 - Crear un cliente\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\02 - Almacenamiento de tarjeta\01 - Crear un cliente\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\02 - Almacenamiento de tarjeta\02 - Mostrar Tarjetas\index.html" target="content\wwwroot\net\HPP\02 - Almacenamiento de tarjeta\02 - Mostrar Tarjetas\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\02 - Almacenamiento de tarjeta\02 - Mostrar Tarjetas\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\02 - Almacenamiento de tarjeta\02 - Mostrar Tarjetas\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\03 - Fraud Management\01 - Fraud Filter\index.html" target="content\wwwroot\net\HPP\03 - Fraud Management\01 - Fraud Filter\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\03 - Fraud Management\01 - Fraud Filter\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\03 - Fraud Management\01 - Fraud Filter\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\04 - DCC\index.html" target="content\wwwroot\net\HPP\04 - DCC\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\04 - DCC\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\04 - DCC\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\05 - 3DS2\01 - Autorización\index.html" target="content\wwwroot\net\HPP\05 - 3DS2\01 - Autorización\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\05 - 3DS2\01 - Autorización\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\05 - 3DS2\01 - Autorización\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\05 - 3DS2\02 - Datos adicionales\index.html" target="content\wwwroot\net\HPP\05 - 3DS2\02 - Datos adicionales\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\05 - 3DS2\02 - Datos adicionales\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\05 - 3DS2\02 - Datos adicionales\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\informe.html" target="content\wwwroot\net\informe.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\informe.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\informe.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\appsettings.Development.json" target="content\appsettings.Development.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\appsettings.Development.json" target="contentFiles\any\netcoreapp2.2\appsettings.Development.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\appsettings.json" target="content\appsettings.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\appsettings.json" target="contentFiles\any\netcoreapp2.2\appsettings.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\libman.json" target="content\libman.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\libman.json" target="contentFiles\any\netcoreapp2.2\libman.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\Properties\launchSettings.json" target="content\Properties\launchSettings.json" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\Properties\launchSettings.json" target="contentFiles\any\netcoreapp2.2\Properties\launchSettings.json" />
+  </files>
+</package>

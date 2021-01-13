@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj": {}
+    "C:\\Users\\victor.cantera\\Documents\\GitHub\\net-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj": {}
   },
   "projects": {
-    "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj": {
-      "version": "1.0.0",
+    "C:\\Users\\victor.cantera\\Documents\\GitHub\\net-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj": {
+      "version": "2.1.0",
       "restore": {
-        "projectUniqueName": "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj",
-        "projectName": "GlobalPayments.Api",
-        "projectPath": "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj",
+        "projectUniqueName": "C:\\Users\\victor.cantera\\Documents\\GitHub\\net-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj",
+        "projectName": "AddonPayments.Api",
+        "projectPath": "C:\\Users\\victor.cantera\\Documents\\GitHub\\net-sdk\\src\\GlobalPayments.Api\\GlobalPayments.Api.csproj",
         "packagesPath": "C:\\Users\\victor.cantera\\.nuget\\packages\\",
-        "outputPath": "C:\\SDK\\net\\dotnet-sdk\\src\\GlobalPayments.Api\\obj\\",
+        "outputPath": "C:\\Users\\victor.cantera\\Documents\\GitHub\\net-sdk\\src\\GlobalPayments.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://its.test.necomplus.net/NuGet/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,10 +42,6 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
-            "CoreCompat.System.Drawing": {
-              "target": "Package",
-              "version": "[1.0.0-beta006, )"
-            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -54,41 +51,19 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[9.0.1, )"
-            },
-            "System.IO.FileSystem": {
-              "target": "Package",
-              "version": "[4.3.0, )"
-            },
-            "System.Net.Primitives": {
-              "target": "Package",
-              "version": "[4.3.0, )"
-            },
-            "System.Net.Requests": {
-              "target": "Package",
-              "version": "[4.3.0, )"
-            },
-            "System.Net.Sockets": {
-              "target": "Package",
-              "version": "[4.3.0, )"
-            },
-            "System.Security.Cryptography.Algorithms": {
-              "target": "Package",
-              "version": "[4.3.0, )"
-            },
-            "System.Threading.Thread": {
-              "target": "Package",
-              "version": "[4.0.0, )"
-            },
-            "System.Xml.XmlDocument": {
-              "target": "Package",
-              "version": "[4.0.1, )"
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
