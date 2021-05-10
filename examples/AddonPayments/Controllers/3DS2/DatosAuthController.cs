@@ -73,7 +73,7 @@ namespace AddonPayments.Controllers._3DS2
 
             catch (ApiException exce)
             {
-                return Ok(exce);
+                return BadRequest(exce);
                 // TODO: agregue su control de excepciones aquí
             }
         }

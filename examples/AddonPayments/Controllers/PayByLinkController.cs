@@ -85,7 +85,7 @@ namespace AddonPayments.Controllers
                         return BadRequest(ex.Message);
                     }
                 } catch (HttpRequestException e) {
-                    return Ok(e);
+                    return BadRequest(e);
                 }
             }
         }

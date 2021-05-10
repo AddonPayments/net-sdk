@@ -61,6 +61,7 @@
       <files include="any/netcoreapp2.2/wwwroot/net/HPP/04 - DCC/index.html" buildAction="Content" />
       <files include="any/netcoreapp2.2/wwwroot/net/HPP/05 - 3DS2/01 - Autorización/index.html" buildAction="Content" />
       <files include="any/netcoreapp2.2/wwwroot/net/HPP/05 - 3DS2/02 - Datos adicionales/index.html" buildAction="Content" />
+      <files include="any/netcoreapp2.2/wwwroot/net/HPP/05 - 3DS2/03 - OTB/index.html" buildAction="Content" />
       <files include="any/netcoreapp2.2/wwwroot/net/informe.html" buildAction="Content" />
       <files include="any/netcoreapp2.2/appsettings.Development.json" buildAction="Content" />
       <files include="any/netcoreapp2.2/appsettings.json" buildAction="Content" />
@@ -157,6 +158,8 @@
     <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\05 - 3DS2\01 - Autorización\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\05 - 3DS2\01 - Autorización\index.html" />
     <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\05 - 3DS2\02 - Datos adicionales\index.html" target="content\wwwroot\net\HPP\05 - 3DS2\02 - Datos adicionales\index.html" />
     <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\05 - 3DS2\02 - Datos adicionales\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\05 - 3DS2\02 - Datos adicionales\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\05 - 3DS2\03 - OTB\index.html" target="content\wwwroot\net\HPP\05 - 3DS2\03 - OTB\index.html" />
+    <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\HPP\05 - 3DS2\03 - OTB\index.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\HPP\05 - 3DS2\03 - OTB\index.html" />
     <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\informe.html" target="content\wwwroot\net\informe.html" />
     <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\wwwroot\net\informe.html" target="contentFiles\any\netcoreapp2.2\wwwroot\net\informe.html" />
     <file src="C:\Users\victor.cantera\Documents\GitHub\net-sdk\examples\AddonPayments\appsettings.Development.json" target="content\appsettings.Development.json" />

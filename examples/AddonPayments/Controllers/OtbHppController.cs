@@ -16,7 +16,7 @@ namespace AddonPayments.Controllers
             var service = new HostedService(new GatewayConfig
             {
                 MerchantId = "addonnettest",
-                AccountId = "api",
+                AccountId = "internet",
                 SharedSecret = "secret",
                 ServiceUrl = "https://hpp.sandbox.addonpayments.com/pay",
                 HostedPaymentConfig = new HostedPaymentConfig
@@ -24,8 +24,6 @@ namespace AddonPayments.Controllers
                     Version = "2"
                 }
             });
-
-            
 
             try {
                 // process an auto-capture authorization

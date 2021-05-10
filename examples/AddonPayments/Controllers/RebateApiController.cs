@@ -56,7 +56,7 @@ namespace AddonPayments.Controllers
             catch (ApiException exce)
             {
                 RespuestaError respuesta = new RespuestaError { resultado = "Error en el envío de datos <br><br>" + exce };
-                return Ok(respuesta);
+                return BadRequest(respuesta);
             }
         }
     }

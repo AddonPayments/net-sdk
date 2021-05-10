@@ -44,7 +44,7 @@ namespace AddonPayments.Controllers._3DS2
 
             catch (Exception exce)
             {
-                return Ok(exce);
+                return BadRequest(exce);
                 // TODO: agregue su manejo de excepciones aquí
             }
 
