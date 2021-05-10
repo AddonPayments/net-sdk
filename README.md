@@ -38,7 +38,7 @@ El proyecto está compilado con entornos compatibles con las herramientas `dotne
 Para instalar vía [Nuget Manager Console](https://docs.nuget.org/consume/package-manager-console), debe introducir el siguiente comando en su consola:
 
 ```
-PM> Install-Package AddonPayments.Api -Version 2.1.0
+PM> Install-Package AddonPayments.Api -Version 2.2.0
 ```
 
 Para instalar a través de una descarga directa:

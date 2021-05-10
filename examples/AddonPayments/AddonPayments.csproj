@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <Description>Este SDK ha sido adaptado por Comercia Global Payments para facilitar la integración de su terminal Addon Payments en su servidor .NET.</Description>
     <PackageProjectUrl>https://desarrolladores.addonpayments.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AddonPayments/net-sdk</RepositoryUrl>

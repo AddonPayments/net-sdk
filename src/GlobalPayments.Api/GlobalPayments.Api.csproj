@@ -12,7 +12,7 @@
     <Product>AddonPayments</Product>
     <title>SDK de Addon Payments</title>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
